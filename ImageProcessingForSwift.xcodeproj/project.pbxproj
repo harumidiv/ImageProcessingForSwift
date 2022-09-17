@@ -13,6 +13,13 @@
 		49C53BDE28D5E5C600C2CD04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C53BDC28D5E5C600C2CD04 /* Main.storyboard */; };
 		49C53BE028D5E5C700C2CD04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C53BDF28D5E5C700C2CD04 /* Assets.xcassets */; };
 		49C53BE328D5E5C700C2CD04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C53BE128D5E5C700C2CD04 /* LaunchScreen.storyboard */; };
+		49C53BEE28D5E67F00C2CD04 /* BinarizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BEC28D5E67F00C2CD04 /* BinarizationViewController.swift */; };
+		49C53BEF28D5E67F00C2CD04 /* BinarizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C53BED28D5E67F00C2CD04 /* BinarizationViewController.xib */; };
+		49C53BF128D5E6AA00C2CD04 /* PixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BF028D5E6AA00C2CD04 /* PixelBuffer.swift */; };
+		49C53BF528D5E76900C2CD04 /* GrayscaleConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BF328D5E76900C2CD04 /* GrayscaleConversionViewController.swift */; };
+		49C53BF628D5E76900C2CD04 /* GrayscaleConversionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C53BF428D5E76900C2CD04 /* GrayscaleConversionViewController.xib */; };
+		49C53BFA28D5E7F000C2CD04 /* ChannelSwapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BF828D5E7F000C2CD04 /* ChannelSwapViewController.swift */; };
+		49C53BFB28D5E7F000C2CD04 /* ChannelSwapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C53BF928D5E7F000C2CD04 /* ChannelSwapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		49C53BDF28D5E5C700C2CD04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49C53BE228D5E5C700C2CD04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49C53BE428D5E5C700C2CD04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49C53BEC28D5E67F00C2CD04 /* BinarizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarizationViewController.swift; sourceTree = "<group>"; };
+		49C53BED28D5E67F00C2CD04 /* BinarizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BinarizationViewController.xib; sourceTree = "<group>"; };
+		49C53BF028D5E6AA00C2CD04 /* PixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBuffer.swift; sourceTree = "<group>"; };
+		49C53BF328D5E76900C2CD04 /* GrayscaleConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleConversionViewController.swift; sourceTree = "<group>"; };
+		49C53BF428D5E76900C2CD04 /* GrayscaleConversionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GrayscaleConversionViewController.xib; sourceTree = "<group>"; };
+		49C53BF828D5E7F000C2CD04 /* ChannelSwapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSwapViewController.swift; sourceTree = "<group>"; };
+		49C53BF928D5E7F000C2CD04 /* ChannelSwapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelSwapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +72,52 @@
 			children = (
 				49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */,
 				49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */,
+				49C53BF028D5E6AA00C2CD04 /* PixelBuffer.swift */,
 				49C53BDA28D5E5C600C2CD04 /* ViewController.swift */,
 				49C53BDC28D5E5C600C2CD04 /* Main.storyboard */,
+				49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */,
 				49C53BDF28D5E5C700C2CD04 /* Assets.xcassets */,
 				49C53BE128D5E5C700C2CD04 /* LaunchScreen.storyboard */,
 				49C53BE428D5E5C700C2CD04 /* Info.plist */,
 			);
 			path = ImageProcessingForSwift;
+			sourceTree = "<group>";
+		};
+		49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BF728D5E7E300C2CD04 /* ChannelSwap */,
+				49C53BF228D5E75A00C2CD04 /* GrayscaleConversion */,
+				49C53BEB28D5E64D00C2CD04 /* Binarization */,
+			);
+			path = ImageProcessingDetail;
+			sourceTree = "<group>";
+		};
+		49C53BEB28D5E64D00C2CD04 /* Binarization */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BEC28D5E67F00C2CD04 /* BinarizationViewController.swift */,
+				49C53BED28D5E67F00C2CD04 /* BinarizationViewController.xib */,
+			);
+			path = Binarization;
+			sourceTree = "<group>";
+		};
+		49C53BF228D5E75A00C2CD04 /* GrayscaleConversion */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BF328D5E76900C2CD04 /* GrayscaleConversionViewController.swift */,
+				49C53BF428D5E76900C2CD04 /* GrayscaleConversionViewController.xib */,
+			);
+			path = GrayscaleConversion;
+			sourceTree = "<group>";
+		};
+		49C53BF728D5E7E300C2CD04 /* ChannelSwap */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BF828D5E7F000C2CD04 /* ChannelSwapViewController.swift */,
+				49C53BF928D5E7F000C2CD04 /* ChannelSwapViewController.xib */,
+			);
+			path = ChannelSwap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +178,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C53BEF28D5E67F00C2CD04 /* BinarizationViewController.xib in Resources */,
+				49C53BFB28D5E7F000C2CD04 /* ChannelSwapViewController.xib in Resources */,
 				49C53BE328D5E5C700C2CD04 /* LaunchScreen.storyboard in Resources */,
+				49C53BF628D5E76900C2CD04 /* GrayscaleConversionViewController.xib in Resources */,
 				49C53BE028D5E5C700C2CD04 /* Assets.xcassets in Resources */,
 				49C53BDE28D5E5C600C2CD04 /* Main.storyboard in Resources */,
 			);
@@ -138,9 +194,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C53BEE28D5E67F00C2CD04 /* BinarizationViewController.swift in Sources */,
 				49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */,
+				49C53BF128D5E6AA00C2CD04 /* PixelBuffer.swift in Sources */,
 				49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */,
+				49C53BF528D5E76900C2CD04 /* GrayscaleConversionViewController.swift in Sources */,
 				49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */,
+				49C53BFA28D5E7F000C2CD04 /* ChannelSwapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
