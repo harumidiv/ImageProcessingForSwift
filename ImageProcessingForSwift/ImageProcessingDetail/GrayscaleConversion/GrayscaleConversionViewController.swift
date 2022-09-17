@@ -7,13 +7,8 @@
 
 import UIKit
 
-class GrayscaleConversionViewController: UIViewController {
-    @IBOutlet weak var comparisonConversionView: ComparisonConversionView!
-    
-    var r:[CGFloat] = []
-    var g:[CGFloat] = []
-    var b:[CGFloat] = []
-    var a:[CGFloat] = []
+final class GrayscaleConversionViewController: UIViewController {
+    @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
