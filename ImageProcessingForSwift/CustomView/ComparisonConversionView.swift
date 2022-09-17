@@ -11,7 +11,14 @@ class ComparisonConversionView: UIView {
     
     @IBOutlet weak var beforeImage: UIImageView!
     @IBOutlet weak var afterImage: UIImageView!
-    @IBOutlet weak var convertButton: UIButton!
+    @IBOutlet private weak var convertButton: UIButton!
+    
+    func setup(before: UIImage? = UIImage(named: "harumi"), target: Any?, action: Selector) {
+        beforeImage.image = before
+        convertButton.addTarget(target,
+                                action: action,
+                                for: .touchUpInside)
+    }
     
     // MARK: - Initializer
     

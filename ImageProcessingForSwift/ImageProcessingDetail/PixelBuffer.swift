@@ -12,7 +12,13 @@ final class PixelBuffer {
     var width: Int
     var height: Int
     private var bytesPerRow: Int
-    private let bytesPerPixel = 4 //1ピクセル4バイトのデータ固定
+    //1ピクセル4バイトのデータ固定
+    private let bytesPerPixel = 4
+    
+    private var r:[CGFloat] = []
+    private var g:[CGFloat] = []
+    private var b:[CGFloat] = []
+    private var a:[CGFloat] = []
     
     init?(uiImage: UIImage) {
         guard let cgImage = uiImage.cgImage,
@@ -28,6 +34,20 @@ final class PixelBuffer {
         bytesPerRow = cgImage.bytesPerRow
     }
     
+    func getRGBA() -> (r:[CGFloat], g: [CGFloat], b:[CGFloat], a:[CGFloat]) {
+        for x in 0..<width {
+            for y in 0..<height {
+                r.append(getRed(x: x, y: y))
+                g.append(getBlue(x: x, y: y))
+                b.append(getGreen(x: x, y: y))
+                a.append(getAlpha(x: x, y: y))
+            }
+        }
+        return (r: r, g: g, b: b, a: a)
+    }
+}
+
+private extension PixelBuffer {
     func getRed(x: Int, y: Int) -> CGFloat {
         let pixelInfo = bytesPerRow * y + x * bytesPerPixel
         let red = CGFloat(pixelData[pixelInfo]) / CGFloat(255.0)
