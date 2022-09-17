@@ -40,24 +40,14 @@ extension UIImage {
         
         let width:Int = Int(size.width)
         let height:Int = Int(size.height)
-        let (backgroundR, backgroundG, backgroundB) = binarization(width: width,
-                                                                   height: height,
-                                                                   r: r,
-                                                                   g: g,
-                                                                   b: b)
-        let (binarizeSubR, binarizeSubG, binarizeSubB) = binarization(width: width,
-                                                                      height: height,
-                                                                      r: subR,
-                                                                      g: subG,
-                                                                      b: subB)
-        
+     
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         for w in 0..<width {
             for h in 0..<height {
                 let index = (w * width) + h
-                let isMatchColor: Bool = backgroundR[index] == binarizeSubR[index]
-                                      && backgroundG[index] == binarizeSubG[index]
-                                      && backgroundB[index] == binarizeSubB[index]
+                let isMatchColor: Bool = r[index] == subR[index]
+                                      && g[index] == subG[index]
+                                      && b[index] == subB[index]
                 let color: CGFloat = isMatchColor ? 255 : 0
                 UIColor(red: color, green: color, blue: color, alpha: a[index]).setFill()
                 let drawRect = CGRect(x: w, y: h, width: 1, height: 1)
