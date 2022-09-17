@@ -11,7 +11,7 @@ class ComparisonConversionView: UIView {
     
     @IBOutlet weak var beforeImage: UIImageView!
     @IBOutlet weak var afterImage: UIImageView!
-    var tapHandler:(()->Void)?
+    @IBOutlet weak var convertButton: UIButton!
     
     // MARK: - Initializer
     
@@ -32,9 +32,5 @@ class ComparisonConversionView: UIView {
         view.frame = self.bounds
         self.addSubview(view)
     }
-    
-    // MARK: - Action
-    @IBAction func tapAction(_ sender: Any) {
-        tapHandler?()
-    }
+
 }

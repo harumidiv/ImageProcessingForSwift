@@ -18,10 +18,15 @@ final class ChannelSwapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        comparisonConversionView.beforeImage.image = UIImage(named: "harumi")!
-        
+        comparisonConversionView.beforeImage.image = UIImage(named: "harumi")
+        comparisonConversionView.convertButton.addTarget(self,
+                                                         action: #selector(convertImage),
+                                                         for: .touchUpInside)
+    }
+    
+    @objc func convertImage() {
         if let image = comparisonConversionView.beforeImage.image,
-            let pixelBuffer = PixelBuffer(uiImage: image) {
+           let pixelBuffer = PixelBuffer(uiImage: image) {
             for x in 0..<pixelBuffer.width {
                 for y in 0..<pixelBuffer.height {
                     r.append(pixelBuffer.getRed(x: x, y: y))
@@ -40,12 +45,12 @@ final class ChannelSwapViewController: UIViewController {
 extension UIImage {
     func createImage(r:[CGFloat], g: [CGFloat], b:[CGFloat], a:[CGFloat]) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        let wid:Int = Int(size.width)
-        let hei:Int = Int(size.height)
+        let width:Int = Int(size.width)
+        let height:Int = Int(size.height)
         
-        for w in 0..<wid {
-            for h in 0..<hei {
-                let index = (w * wid) + h
+        for w in 0..<width {
+            for h in 0..<height {
+                let index = (w * width) + h
                 UIColor(red: r[index], green: g[index], blue: b[index], alpha: a[index]).setFill()
                 let drawRect = CGRect(x: w, y: h, width: 1, height: 1)
                 UIRectFill(drawRect)
