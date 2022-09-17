@@ -30,22 +30,25 @@ final class PixelBuffer {
     
     func getRed(x: Int, y: Int) -> CGFloat {
         let pixelInfo = bytesPerRow * y + x * bytesPerPixel
-        let r = CGFloat(pixelData[pixelInfo]) / CGFloat(255.0)
+        let red = CGFloat(pixelData[pixelInfo]) / CGFloat(255.0)
         
-        return r
+        return red
     }
+    
     func getGreen(x: Int, y: Int) -> CGFloat {
         let pixelInfo = bytesPerRow * y + x * bytesPerPixel
         let green = CGFloat(pixelData[pixelInfo+1]) / CGFloat(255.0)
         
         return green
     }
+    
     func getBlue(x: Int, y: Int) -> CGFloat {
         let pixelInfo = bytesPerRow * y + x * bytesPerPixel
         let blue = CGFloat(pixelData[pixelInfo+2]) / CGFloat(255.0)
         
         return blue
     }
+    
     func getAlpha(x: Int, y: Int) -> CGFloat {
         let pixelInfo = bytesPerRow * y + x * bytesPerPixel
         let alpha = CGFloat(pixelData[pixelInfo+3]) / CGFloat(255.0)

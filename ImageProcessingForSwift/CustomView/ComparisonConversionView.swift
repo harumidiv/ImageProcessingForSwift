@@ -9,8 +9,8 @@ import UIKit
 
 class ComparisonConversionView: UIView {
     
-    @IBOutlet private weak var beforeImage: UIImageView!
-    @IBOutlet private weak var afterImage: UIImageView!
+    @IBOutlet weak var beforeImage: UIImageView!
+    @IBOutlet weak var afterImage: UIImageView!
     var tapHandler:(()->Void)?
     
     // MARK: - Initializer
