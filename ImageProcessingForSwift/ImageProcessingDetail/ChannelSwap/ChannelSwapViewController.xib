@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChannelSwapViewController" customModule="ImageProcessingForSwift" customModuleProvider="target">
             <connections>
+                <outlet property="comparisonConversionView" destination="bcE-nS-ILF" id="FwK-Uf-NWo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,8 +18,20 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcE-nS-ILF" customClass="ComparisonConversionView" customModule="ImageProcessingForSwift" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bcE-nS-ILF" secondAttribute="bottom" id="MWL-aD-UIS"/>
+                <constraint firstItem="bcE-nS-ILF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="OPo-li-BeO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bcE-nS-ILF" secondAttribute="trailing" id="fOH-gE-F1U"/>
+                <constraint firstItem="bcE-nS-ILF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="y2T-Wm-8mw"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="115"/>
         </view>
     </objects>

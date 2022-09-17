@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="afterImage" destination="uD0-VE-xuX" id="EXk-8g-V36"/>
                 <outlet property="beforeImage" destination="VjR-m8-kr6" id="FhA-Ts-xDa"/>
+                <outlet property="convertButton" destination="qXh-6w-j7L" id="eBr-36-8fr"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -67,9 +68,6 @@
                             <integer key="value" value="4"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="tapAction:" destination="-1" eventType="touchUpInside" id="SRe-ze-Awb"/>
-                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

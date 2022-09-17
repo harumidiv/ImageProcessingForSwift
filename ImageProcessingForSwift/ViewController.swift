@@ -7,20 +7,12 @@
 
 import UIKit
 
-extension UIViewController {
-    static func loadFromNib() -> Self {
-        func instantiateFromNib<T: UIViewController>() -> T {
-            return T.init(nibName: String(describing: T.self), bundle: nil)
-        }
-        return instantiateFromNib()
-    }
-}
-
 final class ViewController: UIViewController {
     struct ImageProcessingData {
         let viewController: UIViewController
         let title: String
     }
+
     lazy var imageProcessingList: [ImageProcessingData] = [
         .init(viewController: ChannelSwapViewController.loadFromNib(),
               title: "チャンネル切り替え"),
@@ -30,7 +22,7 @@ final class ViewController: UIViewController {
               title: "二値化")
     ]
 
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
