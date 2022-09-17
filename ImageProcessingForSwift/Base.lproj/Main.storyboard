@@ -16,30 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMg-NG-yLu" customClass="ComparisonConversionView" customModule="ImageProcessingForSwift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="248" width="414" height="400"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="911-yE-j2k">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="OEk-sw-dh5"/>
-                                </constraints>
-                            </view>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nMg-NG-yLu" secondAttribute="trailing" id="Fbm-Ku-S7e"/>
-                            <constraint firstItem="nMg-NG-yLu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GsQ-pj-DSv"/>
-                            <constraint firstItem="nMg-NG-yLu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rc3-v6-AEm"/>
-                            <constraint firstItem="nMg-NG-yLu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eaT-65-I5N"/>
+                            <constraint firstItem="911-yE-j2k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1i0-ne-BJf"/>
+                            <constraint firstItem="911-yE-j2k" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="A9H-t9-A7p"/>
+                            <constraint firstAttribute="bottom" secondItem="911-yE-j2k" secondAttribute="bottom" id="guD-BQ-IS8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="911-yE-j2k" secondAttribute="trailing" id="zl0-np-eCJ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="hogeView" destination="nMg-NG-yLu" id="NCR-Y1-rzF"/>
+                        <outlet property="tableView" destination="911-yE-j2k" id="K00-sc-AGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="118"/>
+            <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
         </scene>
     </scenes>
     <resources>
