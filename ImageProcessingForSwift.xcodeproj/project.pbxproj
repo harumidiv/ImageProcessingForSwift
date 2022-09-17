@@ -22,6 +22,7 @@
 		49C53BFB28D5E7F000C2CD04 /* ChannelSwapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C53BF928D5E7F000C2CD04 /* ChannelSwapViewController.xib */; };
 		49C53BFE28D5E8D400C2CD04 /* ComparisonConversionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BFD28D5E8D400C2CD04 /* ComparisonConversionView.swift */; };
 		49C53C0028D5E8E500C2CD04 /* ComparisonConversionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C53BFF28D5E8E500C2CD04 /* ComparisonConversionView.xib */; };
+		49C53C0328D5F6C700C2CD04 /* UIVIewController+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		49C53BF928D5E7F000C2CD04 /* ChannelSwapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelSwapViewController.xib; sourceTree = "<group>"; };
 		49C53BFD28D5E8D400C2CD04 /* ComparisonConversionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonConversionView.swift; sourceTree = "<group>"; };
 		49C53BFF28D5E8E500C2CD04 /* ComparisonConversionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonConversionView.xib; sourceTree = "<group>"; };
+		49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Addition.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,10 +76,10 @@
 		49C53BD528D5E5C600C2CD04 /* ImageProcessingForSwift */ = {
 			isa = PBXGroup;
 			children = (
+				49C53C0128D5F6AA00C2CD04 /* Extension */,
 				49C53BFC28D5E87900C2CD04 /* CustomView */,
 				49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */,
 				49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */,
-				49C53BF028D5E6AA00C2CD04 /* PixelBuffer.swift */,
 				49C53BDA28D5E5C600C2CD04 /* ViewController.swift */,
 				49C53BDC28D5E5C600C2CD04 /* Main.storyboard */,
 				49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */,
@@ -91,6 +93,7 @@
 		49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */ = {
 			isa = PBXGroup;
 			children = (
+				49C53BF028D5E6AA00C2CD04 /* PixelBuffer.swift */,
 				49C53BF728D5E7E300C2CD04 /* ChannelSwap */,
 				49C53BF228D5E75A00C2CD04 /* GrayscaleConversion */,
 				49C53BEB28D5E64D00C2CD04 /* Binarization */,
@@ -132,6 +135,14 @@
 				49C53BFF28D5E8E500C2CD04 /* ComparisonConversionView.xib */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		49C53C0128D5F6AA00C2CD04 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +226,7 @@
 				49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */,
 				49C53BF528D5E76900C2CD04 /* GrayscaleConversionViewController.swift in Sources */,
 				49C53BFE28D5E8D400C2CD04 /* ComparisonConversionView.swift in Sources */,
+				49C53C0328D5F6C700C2CD04 /* UIVIewController+Addition.swift in Sources */,
 				49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */,
 				49C53BFA28D5E7F000C2CD04 /* ChannelSwapViewController.swift in Sources */,
 			);
