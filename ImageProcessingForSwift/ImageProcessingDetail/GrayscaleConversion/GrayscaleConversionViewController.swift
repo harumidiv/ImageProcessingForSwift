@@ -8,22 +8,48 @@
 import UIKit
 
 class GrayscaleConversionViewController: UIViewController {
-
+    @IBOutlet weak var comparisonConversionView: ComparisonConversionView!
+    
+    var r:[CGFloat] = []
+    var g:[CGFloat] = []
+    var b:[CGFloat] = []
+    var a:[CGFloat] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        comparisonConversionView.setup(target: self, action: #selector(convertImage))
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func convertImage() {
+        if let image = comparisonConversionView.beforeImage.image,
+           let pixelBuffer = PixelBuffer(uiImage: image) {
+            let (r, g, b, a) = pixelBuffer.getRGBA()
+            comparisonConversionView.afterImage.image = image.createGrayImage(r: r, g: g, b: b, a: a)
+            
+        } else {
+            comparisonConversionView.afterImage.image = UIImage(named: "error")
+        }
     }
-    */
+}
 
+extension UIImage {
+    func createGrayImage(r:[CGFloat], g: [CGFloat], b:[CGFloat], a:[CGFloat]) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        let width:Int = Int(size.width)
+        let height:Int = Int(size.height)
+        
+        for w in 0..<width {
+            for h in 0..<height {
+                let index = (w * width) + h
+                let color = 0.2126 * r[index] + 0.7152 * g[index] + 0.0722 * b[index]
+                UIColor(red: color, green: color, blue: color, alpha: a[index]).setFill()
+                let drawRect = CGRect(x: w, y: h, width: 1, height: 1)
+                UIRectFill(drawRect)
+                draw(in: drawRect, blendMode: .destinationIn, alpha: 1)
+            }
+        }
+        let grayImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return grayImage
+    }
 }

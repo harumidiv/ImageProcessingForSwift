@@ -17,25 +17,15 @@ final class ChannelSwapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        comparisonConversionView.beforeImage.image = UIImage(named: "harumi")
-        comparisonConversionView.convertButton.addTarget(self,
-                                                         action: #selector(convertImage),
-                                                         for: .touchUpInside)
+        comparisonConversionView.setup(target: self, action: #selector(convertImage))
     }
     
     @objc func convertImage() {
         if let image = comparisonConversionView.beforeImage.image,
            let pixelBuffer = PixelBuffer(uiImage: image) {
-            for x in 0..<pixelBuffer.width {
-                for y in 0..<pixelBuffer.height {
-                    r.append(pixelBuffer.getRed(x: x, y: y))
-                    g.append(pixelBuffer.getBlue(x: x, y: y))
-                    b.append(pixelBuffer.getGreen(x: x, y: y))
-                    a.append(pixelBuffer.getAlpha(x: x, y: y))
-                }
-            }
+            let (r, g, b, a) = pixelBuffer.getRGBA()
             comparisonConversionView.afterImage.image = image.createImage(r: g, g: b, b: r, a: a)
+            
         } else {
             comparisonConversionView.afterImage.image = UIImage(named: "error")
         }
