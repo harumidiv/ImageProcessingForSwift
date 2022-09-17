@@ -19,7 +19,9 @@ final class ViewController: UIViewController {
         .init(viewController: GrayscaleConversionViewController.loadFromNib(),
               title: "グレースケール化"),
         .init(viewController: BinarizationViewController.loadFromNib(),
-              title: "二値化")
+              title: "二値化"),
+        .init(viewController: BackgroundSubtractionViewController.loadFromNib(),
+              title: "背景差分法")
     ]
 
     @IBOutlet private weak var tableView: UITableView! {
