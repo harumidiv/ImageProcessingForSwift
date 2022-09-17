@@ -7,8 +7,8 @@
 
 import UIKit
 
-class GrayscaleConversionViewController: UIViewController {
-    @IBOutlet weak var comparisonConversionView: ComparisonConversionView!
+final class GrayscaleConversionViewController: UIViewController {
+    @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
