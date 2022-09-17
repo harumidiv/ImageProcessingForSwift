@@ -10,11 +10,6 @@ import UIKit
 class GrayscaleConversionViewController: UIViewController {
     @IBOutlet weak var comparisonConversionView: ComparisonConversionView!
     
-    var r:[CGFloat] = []
-    var g:[CGFloat] = []
-    var b:[CGFloat] = []
-    var a:[CGFloat] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         comparisonConversionView.setup(target: self, action: #selector(convertImage))
