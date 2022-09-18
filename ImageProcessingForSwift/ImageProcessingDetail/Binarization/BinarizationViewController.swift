@@ -21,7 +21,7 @@ final class BinarizationViewController: UIViewController {
            let pixelBuffer = PixelBuffer(uiImage: image) {
             let (r, g, b, a) = pixelBuffer.getRGBA()
             comparisonConversionView.afterImage.image = image.createBinarizedImage(r: r, g: g, b: b, a: a)
-            
+
         } else {
             comparisonConversionView.afterImage.image = UIImage(named: "error")
         }

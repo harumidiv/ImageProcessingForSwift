@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49210A1628D73FCF001516B5 /* GrayscaleCIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1528D73FCF001516B5 /* GrayscaleCIFilter.swift */; };
 		49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */; };
 		49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */; };
 		49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BDA28D5E5C600C2CD04 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		49C53C0328D5F6C700C2CD04 /* UIVIewController+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */; };
 		49C53C0728D6040600C2CD04 /* BackgroundSubtractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53C0528D6040600C2CD04 /* BackgroundSubtractionViewController.swift */; };
 		49C53C0828D6040600C2CD04 /* BackgroundSubtractionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C53C0628D6040600C2CD04 /* BackgroundSubtractionViewController.xib */; };
+		49C53CAE28D731BF00C2CD04 /* Kernel.ci.metal in Sources */ = {isa = PBXBuildFile; fileRef = 49C53CAD28D731BF00C2CD04 /* Kernel.ci.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -57,6 +59,7 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
+		49210A1528D73FCF001516B5 /* GrayscaleCIFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleCIFilter.swift; sourceTree = "<group>"; };
 		49C53BD328D5E5C600C2CD04 /* ImageProcessingForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessingForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Addition.swift"; sourceTree = "<group>"; };
 		49C53C0528D6040600C2CD04 /* BackgroundSubtractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSubtractionViewController.swift; sourceTree = "<group>"; };
 		49C53C0628D6040600C2CD04 /* BackgroundSubtractionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundSubtractionViewController.xib; sourceTree = "<group>"; };
+		49C53CAD28D731BF00C2CD04 /* Kernel.ci.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Kernel.ci.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 		49C53BD528D5E5C600C2CD04 /* ImageProcessingForSwift */ = {
 			isa = PBXGroup;
 			children = (
+				49C53CB128D7349400C2CD04 /* Metal */,
 				49C53C0128D5F6AA00C2CD04 /* Extension */,
 				49C53BFC28D5E87900C2CD04 /* CustomView */,
 				49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */,
@@ -148,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				49C53BF328D5E76900C2CD04 /* GrayscaleConversionViewController.swift */,
+				49210A1528D73FCF001516B5 /* GrayscaleCIFilter.swift */,
 				49C53BF428D5E76900C2CD04 /* GrayscaleConversionViewController.xib */,
 			);
 			path = GrayscaleConversion;
@@ -186,6 +192,14 @@
 				49C53C0628D6040600C2CD04 /* BackgroundSubtractionViewController.xib */,
 			);
 			path = BackgroundSubtraction;
+			sourceTree = "<group>";
+		};
+		49C53CB128D7349400C2CD04 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				49C53CAD28D731BF00C2CD04 /* Kernel.ci.metal */,
+			);
+			path = Metal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,12 +283,14 @@
 				49C53BEE28D5E67F00C2CD04 /* BinarizationViewController.swift in Sources */,
 				49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */,
 				49C53BF128D5E6AA00C2CD04 /* PixelBuffer.swift in Sources */,
+				49210A1628D73FCF001516B5 /* GrayscaleCIFilter.swift in Sources */,
 				49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */,
 				49C53BF528D5E76900C2CD04 /* GrayscaleConversionViewController.swift in Sources */,
 				49C53BFE28D5E8D400C2CD04 /* ComparisonConversionView.swift in Sources */,
 				49C53C0328D5F6C700C2CD04 /* UIVIewController+Addition.swift in Sources */,
 				49C53C0728D6040600C2CD04 /* BackgroundSubtractionViewController.swift in Sources */,
 				49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */,
+				49C53CAE28D731BF00C2CD04 /* Kernel.ci.metal in Sources */,
 				49C53BFA28D5E7F000C2CD04 /* ChannelSwapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
