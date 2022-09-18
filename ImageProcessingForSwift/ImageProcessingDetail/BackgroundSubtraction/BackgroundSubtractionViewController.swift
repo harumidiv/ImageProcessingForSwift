@@ -90,16 +90,3 @@ extension UIImage {
         return (r: binarizedColor, g: binarizedColor, b: binarizedColor)
     }
 }
-
-
-public extension UIImage {
-    func toCIImage() -> CIImage? {
-        if let ciImage = self.ciImage {
-            return ciImage
-        }
-        if let cgImage = self.cgImage {
-            return CIImage(cgImage: cgImage)
-        }
-        return nil
-    }
-}

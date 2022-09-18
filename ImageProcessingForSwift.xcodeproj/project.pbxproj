@@ -11,6 +11,7 @@
 		49210A1828D7513D001516B5 /* ChannelSwapFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1728D7513D001516B5 /* ChannelSwapFilter.swift */; };
 		49210A1A28D75297001516B5 /* BinarizationFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1928D75297001516B5 /* BinarizationFilter.swift */; };
 		49210A1C28D767C7001516B5 /* BackgroundSubtractionFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1B28D767C7001516B5 /* BackgroundSubtractionFilter.swift */; };
+		49210A1E28D76FC3001516B5 /* UIImage+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1D28D76FC3001516B5 /* UIImage+Addition.swift */; };
 		49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */; };
 		49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */; };
 		49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BDA28D5E5C600C2CD04 /* ViewController.swift */; };
@@ -66,6 +67,7 @@
 		49210A1728D7513D001516B5 /* ChannelSwapFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSwapFilter.swift; sourceTree = "<group>"; };
 		49210A1928D75297001516B5 /* BinarizationFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarizationFilter.swift; sourceTree = "<group>"; };
 		49210A1B28D767C7001516B5 /* BackgroundSubtractionFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSubtractionFilter.swift; sourceTree = "<group>"; };
+		49210A1D28D76FC3001516B5 /* UIImage+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Addition.swift"; sourceTree = "<group>"; };
 		49C53BD328D5E5C600C2CD04 /* ImageProcessingForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessingForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */,
+				49210A1D28D76FC3001516B5 /* UIImage+Addition.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				49C53BF528D5E76900C2CD04 /* GrayscaleConversionViewController.swift in Sources */,
 				49C53BFE28D5E8D400C2CD04 /* ComparisonConversionView.swift in Sources */,
 				49C53C0328D5F6C700C2CD04 /* UIVIewController+Addition.swift in Sources */,
+				49210A1E28D76FC3001516B5 /* UIImage+Addition.swift in Sources */,
 				49210A1828D7513D001516B5 /* ChannelSwapFilter.swift in Sources */,
 				49C53C0728D6040600C2CD04 /* BackgroundSubtractionViewController.swift in Sources */,
 				49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */,
