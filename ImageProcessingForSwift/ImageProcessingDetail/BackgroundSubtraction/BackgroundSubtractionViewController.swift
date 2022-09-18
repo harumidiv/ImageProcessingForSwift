@@ -18,13 +18,28 @@ final class BackgroundSubtractionViewController: UIViewController {
     
     @objc func convertImage() {
         if let image = comparisonConversionView.beforeImage.image,
-           let pixelBuffer = PixelBuffer(uiImage: image) {
-            let (r, g, b, a) = pixelBuffer.getRGBA()
-            comparisonConversionView.afterImage.image = image.createBackgroundSubtractionImage(subtractionImage: UIImage(named: "backgroundSubtraction"), r: r, g: g, b: b, a: a)
-            
+           let subImage = UIImage(named: "backgroundSubtraction"),
+           let subCIImage = subImage.toCIImage() {
+            let filter = BackgroundSubtractionFilter(threshold: 0.3,
+                                                     subImage: subCIImage)
+            filter.inputImage = CIImage(image: image)
+
+            if let output = filter.outputImage {
+                let bwUIImage = UIImage(ciImage: output)
+                comparisonConversionView.afterImage.image = bwUIImage
+            }
         } else {
             comparisonConversionView.afterImage.image = UIImage(named: "error")
         }
+        
+//        if let image = comparisonConversionView.beforeImage.image,
+//           let pixelBuffer = PixelBuffer(uiImage: image) {
+//            let (r, g, b, a) = pixelBuffer.getRGBA()
+//            comparisonConversionView.afterImage.image = image.createBackgroundSubtractionImage(subtractionImage: UIImage(named: "backgroundSubtraction"), r: r, g: g, b: b, a: a)
+//
+//        } else {
+//            comparisonConversionView.afterImage.image = UIImage(named: "error")
+//        }
     }
 }
 
@@ -35,7 +50,7 @@ extension UIImage {
             return UIImage(named: "error")
         }
         
-        let (subR, subG, subB, subA) = pixelBuffer.getRGBA()
+        let (subR, subG, subB, _) = pixelBuffer.getRGBA()
         
         
         let width:Int = Int(size.width)
@@ -73,5 +88,18 @@ extension UIImage {
             }
         }
         return (r: binarizedColor, g: binarizedColor, b: binarizedColor)
+    }
+}
+
+
+public extension UIImage {
+    func toCIImage() -> CIImage? {
+        if let ciImage = self.ciImage {
+            return ciImage
+        }
+        if let cgImage = self.cgImage {
+            return CIImage(cgImage: cgImage)
+        }
+        return nil
     }
 }
