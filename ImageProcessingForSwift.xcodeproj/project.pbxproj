@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49210A1628D73FCF001516B5 /* GrayscaleFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1528D73FCF001516B5 /* GrayscaleFilter.swift */; };
+		49210A1828D7513D001516B5 /* ChannelSwapFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1728D7513D001516B5 /* ChannelSwapFilter.swift */; };
+		49210A1A28D75297001516B5 /* BinarizationFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1928D75297001516B5 /* BinarizationFilter.swift */; };
+		49210A1C28D767C7001516B5 /* BackgroundSubtractionFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1B28D767C7001516B5 /* BackgroundSubtractionFilter.swift */; };
+		49210A1E28D76FC3001516B5 /* UIImage+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1D28D76FC3001516B5 /* UIImage+Addition.swift */; };
 		49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */; };
 		49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */; };
 		49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BDA28D5E5C600C2CD04 /* ViewController.swift */; };
@@ -25,9 +30,44 @@
 		49C53C0328D5F6C700C2CD04 /* UIVIewController+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */; };
 		49C53C0728D6040600C2CD04 /* BackgroundSubtractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53C0528D6040600C2CD04 /* BackgroundSubtractionViewController.swift */; };
 		49C53C0828D6040600C2CD04 /* BackgroundSubtractionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C53C0628D6040600C2CD04 /* BackgroundSubtractionViewController.xib */; };
+		49C53CAE28D731BF00C2CD04 /* Kernel.ci.metal in Sources */ = {isa = PBXBuildFile; fileRef = 49C53CAD28D731BF00C2CD04 /* Kernel.ci.metal */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		49C53CAB28D7310F00C2CD04 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ci.metal";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).air",
+			);
+			script = "xcrun metal -c $MTL_HEADER_SEARCH_PATHS -fcikernel \"${INPUT_FILE_PATH}\" -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+		49C53CAC28D7311000C2CD04 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ci.air";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(METAL_LIBRARY_OUTPUT_DIR)/$(INPUT_FILE_BASE).metallib",
+			);
+			script = "xcrun metallib -cikernel \"${INPUT_FILE_PATH}\" -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
+		49210A1528D73FCF001516B5 /* GrayscaleFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleFilter.swift; sourceTree = "<group>"; };
+		49210A1728D7513D001516B5 /* ChannelSwapFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSwapFilter.swift; sourceTree = "<group>"; };
+		49210A1928D75297001516B5 /* BinarizationFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarizationFilter.swift; sourceTree = "<group>"; };
+		49210A1B28D767C7001516B5 /* BackgroundSubtractionFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSubtractionFilter.swift; sourceTree = "<group>"; };
+		49210A1D28D76FC3001516B5 /* UIImage+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Addition.swift"; sourceTree = "<group>"; };
 		49C53BD328D5E5C600C2CD04 /* ImageProcessingForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessingForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +88,7 @@
 		49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Addition.swift"; sourceTree = "<group>"; };
 		49C53C0528D6040600C2CD04 /* BackgroundSubtractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSubtractionViewController.swift; sourceTree = "<group>"; };
 		49C53C0628D6040600C2CD04 /* BackgroundSubtractionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundSubtractionViewController.xib; sourceTree = "<group>"; };
+		49C53CAD28D731BF00C2CD04 /* Kernel.ci.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Kernel.ci.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +121,7 @@
 		49C53BD528D5E5C600C2CD04 /* ImageProcessingForSwift */ = {
 			isa = PBXGroup;
 			children = (
+				49C53CB128D7349400C2CD04 /* Metal */,
 				49C53C0128D5F6AA00C2CD04 /* Extension */,
 				49C53BFC28D5E87900C2CD04 /* CustomView */,
 				49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */,
@@ -111,6 +153,7 @@
 			children = (
 				49C53BEC28D5E67F00C2CD04 /* BinarizationViewController.swift */,
 				49C53BED28D5E67F00C2CD04 /* BinarizationViewController.xib */,
+				49210A1928D75297001516B5 /* BinarizationFilter.swift */,
 			);
 			path = Binarization;
 			sourceTree = "<group>";
@@ -120,6 +163,7 @@
 			children = (
 				49C53BF328D5E76900C2CD04 /* GrayscaleConversionViewController.swift */,
 				49C53BF428D5E76900C2CD04 /* GrayscaleConversionViewController.xib */,
+				49210A1528D73FCF001516B5 /* GrayscaleFilter.swift */,
 			);
 			path = GrayscaleConversion;
 			sourceTree = "<group>";
@@ -129,6 +173,7 @@
 			children = (
 				49C53BF828D5E7F000C2CD04 /* ChannelSwapViewController.swift */,
 				49C53BF928D5E7F000C2CD04 /* ChannelSwapViewController.xib */,
+				49210A1728D7513D001516B5 /* ChannelSwapFilter.swift */,
 			);
 			path = ChannelSwap;
 			sourceTree = "<group>";
@@ -146,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */,
+				49210A1D28D76FC3001516B5 /* UIImage+Addition.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -155,8 +201,17 @@
 			children = (
 				49C53C0528D6040600C2CD04 /* BackgroundSubtractionViewController.swift */,
 				49C53C0628D6040600C2CD04 /* BackgroundSubtractionViewController.xib */,
+				49210A1B28D767C7001516B5 /* BackgroundSubtractionFilter.swift */,
 			);
 			path = BackgroundSubtraction;
+			sourceTree = "<group>";
+		};
+		49C53CB128D7349400C2CD04 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				49C53CAD28D731BF00C2CD04 /* Kernel.ci.metal */,
+			);
+			path = Metal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +226,8 @@
 				49C53BD128D5E5C600C2CD04 /* Resources */,
 			);
 			buildRules = (
+				49C53CAC28D7311000C2CD04 /* PBXBuildRule */,
+				49C53CAB28D7310F00C2CD04 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -236,15 +293,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				49C53BEE28D5E67F00C2CD04 /* BinarizationViewController.swift in Sources */,
+				49210A1A28D75297001516B5 /* BinarizationFilter.swift in Sources */,
 				49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */,
 				49C53BF128D5E6AA00C2CD04 /* PixelBuffer.swift in Sources */,
+				49210A1628D73FCF001516B5 /* GrayscaleFilter.swift in Sources */,
 				49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */,
 				49C53BF528D5E76900C2CD04 /* GrayscaleConversionViewController.swift in Sources */,
 				49C53BFE28D5E8D400C2CD04 /* ComparisonConversionView.swift in Sources */,
 				49C53C0328D5F6C700C2CD04 /* UIVIewController+Addition.swift in Sources */,
+				49210A1E28D76FC3001516B5 /* UIImage+Addition.swift in Sources */,
+				49210A1828D7513D001516B5 /* ChannelSwapFilter.swift in Sources */,
 				49C53C0728D6040600C2CD04 /* BackgroundSubtractionViewController.swift in Sources */,
 				49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */,
+				49C53CAE28D731BF00C2CD04 /* Kernel.ci.metal in Sources */,
 				49C53BFA28D5E7F000C2CD04 /* ChannelSwapViewController.swift in Sources */,
+				49210A1C28D767C7001516B5 /* BackgroundSubtractionFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
