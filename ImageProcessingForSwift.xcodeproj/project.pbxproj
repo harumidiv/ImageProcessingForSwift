@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49210A1628D73FCF001516B5 /* GrayscaleCIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1528D73FCF001516B5 /* GrayscaleCIFilter.swift */; };
+		49210A1628D73FCF001516B5 /* GrayscaleFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1528D73FCF001516B5 /* GrayscaleFilter.swift */; };
 		49210A1828D7513D001516B5 /* ChannelSwapFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1728D7513D001516B5 /* ChannelSwapFilter.swift */; };
+		49210A1A28D75297001516B5 /* BinarizationFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1928D75297001516B5 /* BinarizationFilter.swift */; };
 		49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */; };
 		49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */; };
 		49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BDA28D5E5C600C2CD04 /* ViewController.swift */; };
@@ -60,8 +61,9 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
-		49210A1528D73FCF001516B5 /* GrayscaleCIFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleCIFilter.swift; sourceTree = "<group>"; };
+		49210A1528D73FCF001516B5 /* GrayscaleFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleFilter.swift; sourceTree = "<group>"; };
 		49210A1728D7513D001516B5 /* ChannelSwapFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSwapFilter.swift; sourceTree = "<group>"; };
+		49210A1928D75297001516B5 /* BinarizationFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarizationFilter.swift; sourceTree = "<group>"; };
 		49C53BD328D5E5C600C2CD04 /* ImageProcessingForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessingForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				49C53BEC28D5E67F00C2CD04 /* BinarizationViewController.swift */,
 				49C53BED28D5E67F00C2CD04 /* BinarizationViewController.xib */,
+				49210A1928D75297001516B5 /* BinarizationFilter.swift */,
 			);
 			path = Binarization;
 			sourceTree = "<group>";
@@ -156,7 +159,7 @@
 			children = (
 				49C53BF328D5E76900C2CD04 /* GrayscaleConversionViewController.swift */,
 				49C53BF428D5E76900C2CD04 /* GrayscaleConversionViewController.xib */,
-				49210A1528D73FCF001516B5 /* GrayscaleCIFilter.swift */,
+				49210A1528D73FCF001516B5 /* GrayscaleFilter.swift */,
 			);
 			path = GrayscaleConversion;
 			sourceTree = "<group>";
@@ -284,9 +287,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				49C53BEE28D5E67F00C2CD04 /* BinarizationViewController.swift in Sources */,
+				49210A1A28D75297001516B5 /* BinarizationFilter.swift in Sources */,
 				49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */,
 				49C53BF128D5E6AA00C2CD04 /* PixelBuffer.swift in Sources */,
-				49210A1628D73FCF001516B5 /* GrayscaleCIFilter.swift in Sources */,
+				49210A1628D73FCF001516B5 /* GrayscaleFilter.swift in Sources */,
 				49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */,
 				49C53BF528D5E76900C2CD04 /* GrayscaleConversionViewController.swift in Sources */,
 				49C53BFE28D5E8D400C2CD04 /* ComparisonConversionView.swift in Sources */,

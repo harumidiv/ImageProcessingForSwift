@@ -18,7 +18,7 @@ final class GrayscaleConversionViewController: UIViewController {
     @objc func convertImage() {
         
         if let image = comparisonConversionView.beforeImage.image {
-            let filter = GrayscaleCIFilter()
+            let filter = GrayscaleFilter()
             filter.inputImage = CIImage(image: image)
             
             if let output = filter.outputImage {

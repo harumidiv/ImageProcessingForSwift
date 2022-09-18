@@ -1,5 +1,5 @@
 //
-//  GrayscaleCIFilter.swift
+//  GrayscaleFilter.swift
 //  ImageProcessingForSwift
 //
 //  Created by 佐川 晴海 on 2022/09/18.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GrayscaleCIFilter: CIFilter {
+final class GrayscaleFilter: CIFilter {
     var inputImage: CIImage?
     
     static var kernel: CIColorKernel = { () -> CIColorKernel in
@@ -19,7 +19,7 @@ final class GrayscaleCIFilter: CIFilter {
     override var outputImage: CIImage? {
         get {
             guard let input = inputImage else { return nil }
-            return GrayscaleCIFilter.kernel.apply(extent: input.extent, arguments: [input])
+            return GrayscaleFilter.kernel.apply(extent: input.extent, arguments: [input])
         }
     }
 }

@@ -17,14 +17,27 @@ final class BinarizationViewController: UIViewController {
     }
     
     @objc func convertImage() {
-        if let image = comparisonConversionView.beforeImage.image,
-           let pixelBuffer = PixelBuffer(uiImage: image) {
-            let (r, g, b, a) = pixelBuffer.getRGBA()
-            comparisonConversionView.afterImage.image = image.createBinarizedImage(r: r, g: g, b: b, a: a)
-
+        if let image = comparisonConversionView.beforeImage.image {
+            let filter = BinarizationFilter(threshold: 0.3)
+            filter.inputImage = CIImage(image: image)
+            
+            if let output = filter.outputImage {
+                let bwUIImage = UIImage(ciImage: output)
+                comparisonConversionView.afterImage.image = bwUIImage
+            }
         } else {
             comparisonConversionView.afterImage.image = UIImage(named: "error")
         }
+        
+        
+//        if let image = comparisonConversionView.beforeImage.image,
+//           let pixelBuffer = PixelBuffer(uiImage: image) {
+//            let (r, g, b, a) = pixelBuffer.getRGBA()
+//            comparisonConversionView.afterImage.image = image.createBinarizedImage(r: r, g: g, b: b, a: a)
+//
+//        } else {
+//            comparisonConversionView.afterImage.image = UIImage(named: "error")
+//        }
     }
 }
 

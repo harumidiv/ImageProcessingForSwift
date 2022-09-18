@@ -10,15 +10,34 @@ using namespace metal;
 
 #include <CoreImage/CoreImage.h>
 
+constant float3 kRec709Luma  = float3(0.2126, 0.7152, 0.0722);
+
 extern "C" { namespace coreimage {
     
-    float4 grayscaleFilter(sample_t image) {
-        half y = 0.2126 * image.r + 0.7152 * image.g + 0.0722 * image.b;
-        return float4(y, y, y, image.a);
+    float4 grayscaleFilter(sample_t image)
+    {
+        float3 inColor = float3(image.r, image.g, image.b);
+        // dotは内積を求める
+        half gray = dot(kRec709Luma, inColor);
+        return float4(gray, gray, gray, image.a);
     }
     
-    float4 channelSwapFilter(sample_t image) {
+    float4 channelSwapFilter(sample_t image, float rNum, float gNum, float bNum)
+    {
         return float4(image.b, image.r ,image.g, image.a);
+    }
+    
+    float lumin709(float3 p)
+    {
+        return dot(p.rgb, kRec709Luma);
+    }
+    
+    float4 binarizationFilter(sample_t image, float threshold)
+    {
+        float3 inColor = float3(image.r, image.g, image.b);
+        float gray = dot(kRec709Luma, inColor);
+        inColor = float3(step(threshold, gray));
+        return float4(inColor.r, inColor.g ,inColor.b, image.a);
     }
     
 }}
