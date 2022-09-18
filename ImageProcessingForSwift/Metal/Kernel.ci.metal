@@ -22,7 +22,7 @@ extern "C" { namespace coreimage {
         return float4(gray, gray, gray, image.a);
     }
     
-    float4 channelSwapFilter(sample_t image, float rNum, float gNum, float bNum)
+    float4 channelSwapFilter(sample_t image)
     {
         return float4(image.b, image.r ,image.g, image.a);
     }
