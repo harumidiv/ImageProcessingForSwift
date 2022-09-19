@@ -8,11 +8,12 @@
 import UIKit
 
 final class BackgroundSubtractionFilter: CIFilter {
-    var inputImage: CIImage?
+    private let inputImage: CIImage
     private let threshold: CGFloat
     private let subImage: CIImage
     
-    init(threshold: CGFloat, subImage: CIImage) {
+    init(inputImage: CIImage, threshold: CGFloat, subImage: CIImage) {
+        self.inputImage = inputImage
         self.threshold = threshold
         self.subImage = subImage
         super.init()
@@ -30,7 +31,7 @@ final class BackgroundSubtractionFilter: CIFilter {
     
     override var outputImage: CIImage? {
         get {
-            guard let input = inputImage else { return nil }
+            let input = inputImage
             return BackgroundSubtractionFilter.kernel.apply(extent: input.extent, arguments: [input, subImage, threshold])
         }
     }

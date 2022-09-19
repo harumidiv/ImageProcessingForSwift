@@ -44,7 +44,7 @@ extern "C" { namespace coreimage {
         
         float gray = dot(kRec709Luma, inColor);
         inColor = float3(step(threshold, gray));
-        return float4(inColor.r, inColor.g ,inColor.b, image.a);
+        return float4(inColor.r, inColor.g ,inColor.b, 1);
     }
     
 }}
