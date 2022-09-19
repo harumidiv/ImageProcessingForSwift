@@ -47,7 +47,24 @@ extern "C" { namespace coreimage {
         float gray = dot(kRec709Luma, inColor);
         inColor = float3(step(0.1, gray));
         return float4(inColor.r, inColor.g ,inColor.b, image.a);
-//        return float4(r, g, b, image.a);
+    }
+    
+    float4 frameSubtractionFilter(samplet imageA, sample_t imageB, sample_c imageC, float threshold)
+    {
+        // 差分の絶対値取得
+        float abRed = abs(imageA.r - imageB.r);
+        float abGreen = abs(imageA.g - imageB.g);
+        float abBlue = abs(imageA.b - imageB.b);
+        
+        float bcRed = abs(imageB.r - imageC.r);
+        float bcGreen = abs(imageB.g - imageC.g);
+        float bcBlue = abs(imageB.b - imageC.b);
+        
+        if (abRed == bcRed && abGreen == bcGreen && abBlue == bcBlue) {
+            return float4(0, 0 ,0, image.a);
+        } else {
+            return float4(1, 1 ,1, image.a);
+        }
     }
     
 }}
