@@ -37,14 +37,17 @@ extern "C" { namespace coreimage {
     
     float4 backgroundSubtractionFilter(sample_t image, sample_t subImage, float threshold)
     {
-        float3 inColor = float3(0, 0, 0);
-        if (image.r == subImage.r && image.g == subImage.g && image.b == subImage.b) {
-            inColor = float3(1, 1, 1);
-        }
+        // 差分の絶対値取得
+        float r = abs(image.r - subImage.r);
+        float g = abs(image.g - subImage.g);
+        float b = abs(image.b - subImage.b);
         
+        // 二値化
+        float3 inColor = float3(r, g, b);
         float gray = dot(kRec709Luma, inColor);
-        inColor = float3(step(threshold, gray));
-        return float4(inColor.r, inColor.g ,inColor.b, 1);
+        inColor = float3(step(0.1, gray));
+        return float4(inColor.r, inColor.g ,inColor.b, image.a);
+//        return float4(r, g, b, image.a);
     }
     
 }}

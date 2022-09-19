@@ -22,7 +22,7 @@ final class BackgroundSubtractionViewController: UIViewController {
            let subImage = UIImage(named: "backgroundSubtraction"),
            let subCIImage = subImage.toCIImage() {
             let filter = BackgroundSubtractionFilter(inputImage: inputImage,
-                                                     threshold: 0.3,
+                                                     threshold: 0.8,
                                                      subImage: subCIImage)
             if let output = filter.outputImage {
                 let bwUIImage = UIImage(ciImage: output)

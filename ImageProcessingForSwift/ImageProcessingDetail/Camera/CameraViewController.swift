@@ -66,6 +66,13 @@ final class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         // 先にセッションにOutput情報を追加
         captureSession.addOutput(videoDataOutput)
         
+        // カメラの向きの変更
+        for connection in videoDataOutput.connections {
+            if connection.isVideoOrientationSupported {
+                connection.videoOrientation = .portrait
+            }
+        }
+        
         // 内部パラメーターの配信を有効にする
         // isCameraIntrinsicMatrixDeliverySupported がtrueの場合のみ
         videoDataOutput.connections.first?.isCameraIntrinsicMatrixDeliveryEnabled = true
@@ -126,18 +133,18 @@ final class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     
         guard let prevImage = prevImage else {
             self.prevImage = ciImage
-            return UIImage(cgImage: imageRef, scale: 1.0, orientation: UIImage.Orientation.right)
+            return UIImage(cgImage: imageRef, scale: 1.0, orientation: UIImage.Orientation.up)
         }
 
         
-        let filter = BackgroundSubtractionFilter(inputImage: ciImage, threshold: 0.3, subImage: prevImage)
+        let filter = BackgroundSubtractionFilter(inputImage: ciImage, threshold: 0.1, subImage: prevImage)
         
         if let output = filter.outputImage {
             self.prevImage = ciImage
             return UIImage(ciImage: output)
         }  else {
             self.prevImage = ciImage
-            return UIImage(cgImage: imageRef, scale: 1.0, orientation: UIImage.Orientation.right)
+            return UIImage(cgImage: imageRef, scale: 1.0, orientation: UIImage.Orientation.up)
         }
     }
 }
