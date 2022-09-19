@@ -41,6 +41,11 @@ final class BackgroundSubtractionViewController: UIViewController {
 //            comparisonConversionView.afterImage.image = UIImage(named: "error")
 //        }
     }
+    
+    @IBAction func tapAction(_ sender: Any) {
+        self.present(CameraViewController.loadFromNib(), animated: true)
+//        self.present(GrayscaleConversionViewController.loadFromNib(), animated: true)
+    }
 }
 
 extension UIImage {

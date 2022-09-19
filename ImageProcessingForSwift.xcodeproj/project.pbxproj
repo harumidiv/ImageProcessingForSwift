@@ -12,6 +12,8 @@
 		49210A1A28D75297001516B5 /* BinarizationFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1928D75297001516B5 /* BinarizationFilter.swift */; };
 		49210A1C28D767C7001516B5 /* BackgroundSubtractionFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1B28D767C7001516B5 /* BackgroundSubtractionFilter.swift */; };
 		49210A1E28D76FC3001516B5 /* UIImage+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1D28D76FC3001516B5 /* UIImage+Addition.swift */; };
+		49210A2228D816CF001516B5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A2028D816CF001516B5 /* CameraViewController.swift */; };
+		49210A2328D816CF001516B5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49210A2128D816CF001516B5 /* CameraViewController.xib */; };
 		49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */; };
 		49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */; };
 		49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BDA28D5E5C600C2CD04 /* ViewController.swift */; };
@@ -68,6 +70,8 @@
 		49210A1928D75297001516B5 /* BinarizationFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarizationFilter.swift; sourceTree = "<group>"; };
 		49210A1B28D767C7001516B5 /* BackgroundSubtractionFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSubtractionFilter.swift; sourceTree = "<group>"; };
 		49210A1D28D76FC3001516B5 /* UIImage+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Addition.swift"; sourceTree = "<group>"; };
+		49210A2028D816CF001516B5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		49210A2128D816CF001516B5 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		49C53BD328D5E5C600C2CD04 /* ImageProcessingForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessingForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49210A1F28D816B9001516B5 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				49210A2028D816CF001516B5 /* CameraViewController.swift */,
+				49210A2128D816CF001516B5 /* CameraViewController.xib */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		49C53BCA28D5E5C600C2CD04 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +152,7 @@
 		49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */ = {
 			isa = PBXGroup;
 			children = (
+				49210A1F28D816B9001516B5 /* Camera */,
 				49C53BF028D5E6AA00C2CD04 /* PixelBuffer.swift */,
 				49C53BF728D5E7E300C2CD04 /* ChannelSwap */,
 				49C53BF228D5E75A00C2CD04 /* GrayscaleConversion */,
@@ -274,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49210A2328D816CF001516B5 /* CameraViewController.xib in Resources */,
 				49C53BEF28D5E67F00C2CD04 /* BinarizationViewController.xib in Resources */,
 				49C53BFB28D5E7F000C2CD04 /* ChannelSwapViewController.xib in Resources */,
 				49C53BE328D5E5C700C2CD04 /* LaunchScreen.storyboard in Resources */,
@@ -295,6 +310,7 @@
 				49C53BEE28D5E67F00C2CD04 /* BinarizationViewController.swift in Sources */,
 				49210A1A28D75297001516B5 /* BinarizationFilter.swift in Sources */,
 				49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */,
+				49210A2228D816CF001516B5 /* CameraViewController.swift in Sources */,
 				49C53BF128D5E6AA00C2CD04 /* PixelBuffer.swift in Sources */,
 				49210A1628D73FCF001516B5 /* GrayscaleFilter.swift in Sources */,
 				49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */,
