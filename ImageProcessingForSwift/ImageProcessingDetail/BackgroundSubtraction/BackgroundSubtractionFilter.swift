@@ -31,8 +31,7 @@ final class BackgroundSubtractionFilter: CIFilter {
     
     override var outputImage: CIImage? {
         get {
-            let input = inputImage
-            return BackgroundSubtractionFilter.kernel.apply(extent: input.extent, arguments: [input, subImage, threshold])
+            return BackgroundSubtractionFilter.kernel.apply(extent: inputImage.extent, arguments: [inputImage, subImage, threshold])
         }
     }
 }

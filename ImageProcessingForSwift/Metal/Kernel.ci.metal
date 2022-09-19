@@ -49,7 +49,7 @@ extern "C" { namespace coreimage {
         return float4(inColor.r, inColor.g ,inColor.b, image.a);
     }
     
-    float4 frameSubtractionFilter(samplet imageA, sample_t imageB, sample_c imageC, float threshold)
+    float4 frameSubtractionFilter(sample_t imageA, sample_t imageB, sample_t imageC, float threshold)
     {
         // 差分の絶対値取得
         float abRed = abs(imageA.r - imageB.r);
@@ -61,9 +61,9 @@ extern "C" { namespace coreimage {
         float bcBlue = abs(imageB.b - imageC.b);
         
         if (abRed == bcRed && abGreen == bcGreen && abBlue == bcBlue) {
-            return float4(0, 0 ,0, image.a);
+            return float4(0, 0 ,0, 1);
         } else {
-            return float4(1, 1 ,1, image.a);
+            return float4(1, 1 ,1, 1);
         }
     }
     
