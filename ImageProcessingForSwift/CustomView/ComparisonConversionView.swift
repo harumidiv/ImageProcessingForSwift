@@ -7,13 +7,14 @@
 
 import UIKit
 
-class ComparisonConversionView: UIView {
+final class ComparisonConversionView: UIView {
     
     @IBOutlet weak var beforeImage: UIImageView!
     @IBOutlet weak var afterImage: UIImageView!
     @IBOutlet private weak var convertButton: UIButton!
     
-    func setup(before: UIImage? = UIImage(named: "harumi"), target: Any?, action: Selector) {
+    func setup(before: UIImage? = UIImage(named: "harumi"), after: UIImage? = UIImage(named: "no_image"), target: Any?, action: Selector) {
+        afterImage.image = after
         beforeImage.image = before
         convertButton.addTarget(target,
                                 action: action,

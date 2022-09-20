@@ -8,20 +8,33 @@
 import UIKit
 
 final class ViewController: UIViewController {
+    struct ImageProcessingSection {
+        let sectionTitle: String
+        let dmageProcessingDataList: [ImageProcessingData]
+    }
+    
     struct ImageProcessingData {
         let viewController: UIViewController
         let title: String
     }
-
-    lazy var imageProcessingList: [ImageProcessingData] = [
-        .init(viewController: ChannelSwapViewController.loadFromNib(),
-              title: "チャンネル切り替え"),
-        .init(viewController: GrayscaleConversionViewController.loadFromNib(),
-              title: "グレースケール化"),
-        .init(viewController: BinarizationViewController.loadFromNib(),
-              title: "二値化"),
-        .init(viewController: BackgroundSubtractionViewController.loadFromNib(),
-              title: "背景差分法")
+    
+    let imageProcessingList: [ImageProcessingSection] = [
+        .init(sectionTitle: "画像",
+              dmageProcessingDataList: [
+                .init(viewController: ChannelSwapViewController.loadFromNib(),
+                      title: "チャンネル切り替え"),
+                .init(viewController: GrayscaleConversionViewController.loadFromNib(),
+                      title: "グレースケール化"),
+                .init(viewController: BinarizationViewController.loadFromNib(),
+                      title: "二値化"),
+                .init(viewController: BackgroundSubtractionViewController.loadFromNib(),
+                      title: "背景差分法")
+              ]),
+        .init(sectionTitle: "動画",
+              dmageProcessingDataList: [
+                .init(viewController: FrameSubtractionViewController.loadFromNib(),
+                      title: "フレーム間差分法")
+              ])
     ]
 
     @IBOutlet private weak var tableView: UITableView! {
@@ -34,18 +47,27 @@ final class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return imageProcessingList.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?  {
+        return imageProcessingList[section].sectionTitle
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return imageProcessingList[section].dmageProcessingDataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = imageProcessingList[indexPath.row].title
+        cell.textLabel?.text = imageProcessingList[indexPath.section].dmageProcessingDataList[indexPath.row].title
         return cell
     }
 }
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.present(imageProcessingList[indexPath.row].viewController, animated: true)
+        let vc = imageProcessingList[indexPath.section].dmageProcessingDataList[indexPath.row].viewController
+        self.present(vc, animated: true)
     }
 }

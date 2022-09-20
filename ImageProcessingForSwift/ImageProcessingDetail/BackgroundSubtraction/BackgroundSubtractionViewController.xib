@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5U-DU-Dhg" customClass="ComparisonConversionView" customModule="ImageProcessingForSwift" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="271.5" width="414" height="590.5"/>
+                    <rect key="frame" x="0.0" y="271.5" width="414" height="353"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-sm-yK4">
@@ -40,14 +40,6 @@
                         </label>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gL9-Yu-Oga">
-                    <rect key="frame" x="310.5" y="44" width="103.5" height="227.5"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                    <connections>
-                        <action selector="tapAction:" destination="-1" eventType="touchUpInside" id="2VK-PH-4Xh"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -55,14 +47,11 @@
                 <constraint firstItem="9rl-sm-yK4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="17u-lJ-k7w"/>
                 <constraint firstItem="9rl-sm-yK4" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="54U-8v-N3L"/>
                 <constraint firstItem="9rl-sm-yK4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="An3-wN-VbU"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gL9-Yu-Oga" secondAttribute="trailing" id="GQD-gM-1bN"/>
                 <constraint firstItem="K5U-DU-Dhg" firstAttribute="top" secondItem="9rl-sm-yK4" secondAttribute="bottom" id="JYS-3r-OC2"/>
-                <constraint firstItem="gL9-Yu-Oga" firstAttribute="leading" secondItem="9rl-sm-yK4" secondAttribute="trailing" id="McJ-4c-YOS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K5U-DU-Dhg" secondAttribute="trailing" id="Pxg-it-WG0"/>
-                <constraint firstItem="gL9-Yu-Oga" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="aTN-Rc-ZZG"/>
                 <constraint firstItem="K5U-DU-Dhg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cEN-Hx-q5V"/>
-                <constraint firstItem="K5U-DU-Dhg" firstAttribute="top" secondItem="gL9-Yu-Oga" secondAttribute="bottom" id="liz-OB-YLA"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="K5U-DU-Dhg" secondAttribute="bottom" id="yxM-E6-6vL"/>
+                <constraint firstItem="K5U-DU-Dhg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="jgT-Cw-6cx"/>
+                <constraint firstItem="K5U-DU-Dhg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lQS-5k-gjv"/>
             </constraints>
             <point key="canvasLocation" x="139" y="117"/>
         </view>
