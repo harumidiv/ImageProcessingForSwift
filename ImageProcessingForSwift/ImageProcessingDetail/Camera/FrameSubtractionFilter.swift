@@ -33,7 +33,11 @@ final class FrameSubtractionFilter: CIFilter {
     
     override var outputImage: CIImage? {
         get {
-            return GrayscaleFilter.kernel.apply(extent: imageA.extent, arguments: [imageA, imageB, imageC, threshold])
+            return FrameSubtractionFilter.kernel.apply(extent: imageA.extent,
+                                                       arguments: [imageA,
+                                                                   imageB,
+                                                                   imageC,
+                                                                   threshold])
         }
     }
 }

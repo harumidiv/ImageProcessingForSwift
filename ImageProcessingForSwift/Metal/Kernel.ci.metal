@@ -45,7 +45,7 @@ extern "C" { namespace coreimage {
         // 二値化
         float3 inColor = float3(r, g, b);
         float gray = dot(kRec709Luma, inColor);
-        inColor = float3(step(0.1, gray));
+        inColor = float3(step(threshold, gray));
         return float4(inColor.r, inColor.g ,inColor.b, image.a);
     }
     
@@ -60,7 +60,17 @@ extern "C" { namespace coreimage {
         float bcGreen = abs(imageB.g - imageC.g);
         float bcBlue = abs(imageB.b - imageC.b);
         
-        if (abRed == bcRed && abGreen == bcGreen && abBlue == bcBlue) {
+        // 二値化
+        float3 inColor1 = float3(abRed, abGreen, abBlue);
+        float gray1 = dot(kRec709Luma, inColor1);
+        inColor1 = float3(step(threshold, gray1));
+        
+        float3 inColor2 = float3(bcRed, bcGreen, bcBlue);
+        float gray2 = dot(kRec709Luma, inColor2);
+        inColor2 = float3(step(threshold, gray2));
+        
+        
+        if (inColor1.r == inColor2.r && inColor1.g == inColor2.g && inColor1.b == inColor2.b) {
             return float4(0, 0 ,0, 1);
         } else {
             return float4(1, 1 ,1, 1);
