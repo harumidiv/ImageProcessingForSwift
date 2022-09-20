@@ -44,6 +44,13 @@ final class ViewController: UIViewController {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            tableView.deselectRow(at: indexPath, animated: true)
+//        }
+    }
 }
 
 extension ViewController: UITableViewDataSource {

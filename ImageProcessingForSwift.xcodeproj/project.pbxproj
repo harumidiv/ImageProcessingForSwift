@@ -120,6 +120,49 @@
 			path = FrameSubtraction;
 			sourceTree = "<group>";
 		};
+		49210A2928D9C716001516B5 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BF028D5E6AA00C2CD04 /* PixelBuffer.swift */,
+				49C53BF728D5E7E300C2CD04 /* ChannelSwap */,
+				49C53BF228D5E75A00C2CD04 /* GrayscaleConversion */,
+				49C53BEB28D5E64D00C2CD04 /* Binarization */,
+				49C53C0428D603E900C2CD04 /* BackgroundSubtraction */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		49210A2A28D9C736001516B5 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				49210A1F28D816B9001516B5 /* FrameSubtraction */,
+				49210A2728D95E56001516B5 /* AVCapture.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		49210A2B28D9C764001516B5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BDF28D5E5C700C2CD04 /* Assets.xcassets */,
+				49C53BE128D5E5C700C2CD04 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		49210A2C28D9C7A0001516B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BFC28D5E87900C2CD04 /* CustomView */,
+				49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */,
+				49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */,
+				49C53BDA28D5E5C600C2CD04 /* ViewController.swift */,
+				49C53BDC28D5E5C600C2CD04 /* Main.storyboard */,
+				49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		49C53BCA28D5E5C600C2CD04 = {
 			isa = PBXGroup;
 			children = (
@@ -141,14 +184,8 @@
 			children = (
 				49C53CB128D7349400C2CD04 /* Metal */,
 				49C53C0128D5F6AA00C2CD04 /* Extension */,
-				49C53BFC28D5E87900C2CD04 /* CustomView */,
-				49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */,
-				49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */,
-				49C53BDA28D5E5C600C2CD04 /* ViewController.swift */,
-				49C53BDC28D5E5C600C2CD04 /* Main.storyboard */,
-				49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */,
-				49C53BDF28D5E5C700C2CD04 /* Assets.xcassets */,
-				49C53BE128D5E5C700C2CD04 /* LaunchScreen.storyboard */,
+				49210A2C28D9C7A0001516B5 /* View */,
+				49210A2B28D9C764001516B5 /* Resource */,
 				49C53BE428D5E5C700C2CD04 /* Info.plist */,
 			);
 			path = ImageProcessingForSwift;
@@ -157,13 +194,8 @@
 		49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */ = {
 			isa = PBXGroup;
 			children = (
-				49C53BF028D5E6AA00C2CD04 /* PixelBuffer.swift */,
-				49210A2728D95E56001516B5 /* AVCapture.swift */,
-				49210A1F28D816B9001516B5 /* FrameSubtraction */,
-				49C53BF728D5E7E300C2CD04 /* ChannelSwap */,
-				49C53BF228D5E75A00C2CD04 /* GrayscaleConversion */,
-				49C53BEB28D5E64D00C2CD04 /* Binarization */,
-				49C53C0428D603E900C2CD04 /* BackgroundSubtraction */,
+				49210A2A28D9C736001516B5 /* Movie */,
+				49210A2928D9C716001516B5 /* Image */,
 			);
 			path = ImageProcessingDetail;
 			sourceTree = "<group>";
