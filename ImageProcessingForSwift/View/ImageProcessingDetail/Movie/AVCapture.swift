@@ -8,13 +8,13 @@
 import UIKit
 import AVFoundation
 
-protocol AVCaptureDelegate {
+protocol AVCaptureDelegate: AnyObject {
     func capture(image: CGImage)
 }
 
 final class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    var delegate: AVCaptureDelegate?
+    weak var delegate: AVCaptureDelegate?
     
     private lazy var videoInput = { () -> AVCaptureDeviceInput in
         //デフォルトだと背面のカメラが使用される
