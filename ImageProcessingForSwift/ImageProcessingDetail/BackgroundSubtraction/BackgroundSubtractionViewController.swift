@@ -43,7 +43,7 @@ final class BackgroundSubtractionViewController: UIViewController {
     }
     
     @IBAction func tapAction(_ sender: Any) {
-        self.present(CameraViewController.loadFromNib(), animated: true)
+        self.present(FrameSubtractionViewController.loadFromNib(), animated: true)
 //        self.present(GrayscaleConversionViewController.loadFromNib(), animated: true)
     }
 }

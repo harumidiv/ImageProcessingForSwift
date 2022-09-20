@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 protocol AVCaptureDelegate {
-    func capture(image: UIImage)
+    func capture(image: CGImage)
 }
 
 final class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -23,14 +23,13 @@ final class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     }()
     
     private var captureSession: AVCaptureSession = AVCaptureSession()
-    private var prevImageA: CIImage?
-    private var prevImageB: CIImage?
+//    private var prevImageA: CIImage?
+//    private var prevImageB: CIImage?
     
     
     override init(){
         super.init()
         
-        captureSession.sessionPreset = AVCaptureSession.Preset.hd1920x1080
         captureSession.addInput(videoInput)
         
         let videoDataOutput = AVCaptureVideoDataOutput()
@@ -64,7 +63,7 @@ final class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     // SampleBufferからUIImageの作成
-    func imageFromSampleBuffer(sampleBuffer :CMSampleBuffer) -> UIImage {
+    func imageFromSampleBuffer(sampleBuffer :CMSampleBuffer) -> CGImage {
         
         let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
         
@@ -87,31 +86,33 @@ final class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         CVPixelBufferUnlockBaseAddress(imageBuffer, CVPixelBufferLockFlags(rawValue: 0))
         
         // 画像作成
-        let imageRef = newContext.makeImage()!
-        let ciImage = CIImage(cgImage: imageRef, options: nil)
+        return newContext.makeImage()!
         
-        guard let prevImageA = prevImageA,
-              let prevImageB = prevImageB else {
-            self.prevImageB = prevImageA
-            self.prevImageA = ciImage
-            return UIImage(cgImage: imageRef, scale: 1.0, orientation: UIImage.Orientation.up)
-        }
-        
-        
-        let filter = FrameSubtractionFilter(imageA: prevImageA,
-                                            imageB: prevImageB,
-                                            imageC: ciImage,
-                                            threshold: 0.1)
-        
-        if let output = filter.outputImage {
-            self.prevImageB = prevImageA
-            self.prevImageA = ciImage
-            return UIImage(ciImage: output)
-        }  else {
-            self.prevImageB = prevImageA
-            self.prevImageA = ciImage
-            return UIImage(cgImage: imageRef, scale: 1.0, orientation: UIImage.Orientation.up)
-        }
+//        let ciImage = CIImage(cgImage: imageRef, options: nil)
+//
+//
+//        guard let prevImageA = prevImageA,
+//              let prevImageB = prevImageB else {
+//            self.prevImageB = prevImageA
+//            self.prevImageA = ciImage
+//            return UIImage(cgImage: imageRef, scale: 1.0, orientation: UIImage.Orientation.up)
+//        }
+//
+//
+//        let filter = FrameSubtractionFilter(imageA: prevImageA,
+//                                            imageB: prevImageB,
+//                                            imageC: ciImage,
+//                                            threshold: 0.1)
+//
+//        if let output = filter.outputImage {
+//            self.prevImageB = prevImageA
+//            self.prevImageA = ciImage
+//            return UIImage(ciImage: output)
+//        }  else {
+//            self.prevImageB = prevImageA
+//            self.prevImageA = ciImage
+//            return UIImage(cgImage: imageRef, scale: 1.0, orientation: UIImage.Orientation.up)
+//        }
     }
 }
 
