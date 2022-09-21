@@ -52,25 +52,18 @@ extern "C" { namespace coreimage {
     float4 frameSubtractionFilter(sample_t imageA, sample_t imageB, sample_t imageC, float threshold)
     {
         // 差分の絶対値取得
-        float abRed = abs(imageA.r - imageB.r);
-        float abGreen = abs(imageA.g - imageB.g);
-        float abBlue = abs(imageA.b - imageB.b);
-        
-        float bcRed = abs(imageB.r - imageC.r);
-        float bcGreen = abs(imageB.g - imageC.g);
-        float bcBlue = abs(imageB.b - imageC.b);
+        float3 abDiff = abs(imageA.rgb - imageB.rgb);
+        float3 bcDiff = abs(imageB.rgb - imageC.rgb);
         
         // 二値化
-        float3 inColor1 = float3(abRed, abGreen, abBlue);
-        float gray1 = dot(kRec709Luma, inColor1);
-        inColor1 = float3(step(threshold, gray1));
+        float gray1 = dot(kRec709Luma, abDiff);
+        abDiff = float3(step(threshold, gray1));
         
-        float3 inColor2 = float3(bcRed, bcGreen, bcBlue);
-        float gray2 = dot(kRec709Luma, inColor2);
-        inColor2 = float3(step(threshold, gray2));
+        float gray2 = dot(kRec709Luma, bcDiff);
+        bcDiff = float3(step(threshold, gray2));
         
-        
-        if (inColor1.r == inColor2.r && inColor1.g == inColor2.g && inColor1.b == inColor2.b) {
+        // 二値化してるので比較は１つの要素で良い
+        if (abDiff.r == bcDiff.r) {
             return float4(0, 0 ,0, 1);
         } else {
             return float4(1, 1 ,1, 1);
