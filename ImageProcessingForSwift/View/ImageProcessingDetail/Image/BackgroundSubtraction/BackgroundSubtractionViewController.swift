@@ -2,12 +2,12 @@
 //  BackgroundSubtractionViewController.swift
 //  ImageProcessingForSwift
 //
-//  Created by 佐川 晴海 on 2022/09/17.
+//  Created by 佐川 晴海 on 2022/09/21.
 //
 
 import UIKit
 
-final class BackgroundSubtractionViewController: UIViewController {
+class BackgroundSubtractionViewController: UIViewController {
     @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
     private var selectedType: SelectedType = .metal
     private let indicatorViewController: IndicatorViewController = IndicatorViewController.loadFromNib()
@@ -68,14 +68,14 @@ extension UIImage {
         
         let width:Int = Int(size.width)
         let height:Int = Int(size.height)
-     
+        
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         for w in 0..<width {
             for h in 0..<height {
                 let index = (w * width) + h
                 let isMatchColor: Bool = r[index] == subR[index]
-                                      && g[index] == subG[index]
-                                      && b[index] == subB[index]
+                && g[index] == subG[index]
+                && b[index] == subB[index]
                 let color: CGFloat = isMatchColor ? 255 : 0
                 UIColor(red: color, green: color, blue: color, alpha: a[index]).setFill()
                 let drawRect = CGRect(x: w, y: h, width: 1, height: 1)
@@ -91,7 +91,7 @@ extension UIImage {
     private func binarization(width: Int, height: Int, r:[CGFloat], g: [CGFloat], b:[CGFloat]) -> (r:[CGFloat], g: [CGFloat], b:[CGFloat]) {
         let threshold:CGFloat = 128/255
         var binarizedColor:[CGFloat] = []
-       
+        
         for w in 0..<width {
             for h in 0..<height {
                 let index = (w * width) + h
