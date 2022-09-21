@@ -20,16 +20,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="edC-So-lgm">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="edC-So-lgm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4fG-dR-6LS"/>
                 <constraint firstAttribute="bottom" secondItem="edC-So-lgm" secondAttribute="bottom" id="9hH-1y-cVW"/>
                 <constraint firstItem="edC-So-lgm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IAT-Pj-jn0"/>
                 <constraint firstItem="edC-So-lgm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="X7Z-ih-O9c"/>
+                <constraint firstItem="edC-So-lgm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="YNm-mV-CdY"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="132.58928571428572"/>
         </view>
