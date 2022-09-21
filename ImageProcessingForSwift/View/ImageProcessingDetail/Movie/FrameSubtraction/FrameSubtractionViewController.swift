@@ -14,6 +14,7 @@ final class FrameSubtractionViewController: UIViewController {
     
     private var prevImageA: CIImage?
     private var prevImageB: CIImage?
+    private var prevImageC: CIImage?
     
     let avCapture = AVCapture()
     
@@ -22,11 +23,6 @@ final class FrameSubtractionViewController: UIViewController {
         super.viewDidLoad()
         avCapture.delegate = self
     }
-    
-    deinit {
-        print("aaaaa")
-    }
-
 }
 
 extension FrameSubtractionViewController: AVCaptureDelegate {
@@ -37,7 +33,9 @@ extension FrameSubtractionViewController: AVCaptureDelegate {
 
 
         guard let prevImageA = prevImageA,
-              let prevImageB = prevImageB else {
+              let prevImageB = prevImageB,
+              let prevImageC = prevImageC else {
+            self.prevImageC = prevImageB
             self.prevImageB = prevImageA
             self.prevImageA = ciImage
             
@@ -47,14 +45,17 @@ extension FrameSubtractionViewController: AVCaptureDelegate {
 
         let filter = FrameSubtractionFilter(imageA: prevImageA,
                                             imageB: prevImageB,
-                                            imageC: ciImage,
+                                            imageC: prevImageC,
+                                            imageD: ciImage,
                                             threshold: 0.1)
 
         if let output = filter.outputImage {
+            self.prevImageC = prevImageB
             self.prevImageB = prevImageA
             self.prevImageA = ciImage
             imageView.image = UIImage(ciImage: output)
         }  else {
+            self.prevImageC = prevImageB
             self.prevImageB = prevImageA
             self.prevImageA = ciImage
             imageView.image = UIImage(cgImage: image, scale: 1.0, orientation: UIImage.Orientation.up)

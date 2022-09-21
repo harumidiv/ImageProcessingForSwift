@@ -11,12 +11,14 @@ final class FrameSubtractionFilter: CIFilter {
     private let imageA: CIImage
     private let imageB: CIImage
     private let imageC: CIImage
+    private let imageD: CIImage
     private let threshold: CGFloat
     
-    init(imageA: CIImage, imageB: CIImage, imageC: CIImage, threshold: CGFloat) {
+    init(imageA: CIImage, imageB: CIImage, imageC: CIImage, imageD: CIImage, threshold: CGFloat) {
         self.imageA = imageA
         self.imageB = imageB
         self.imageC = imageC
+        self.imageD = imageD
         self.threshold = threshold
         super.init()
     }
@@ -37,6 +39,7 @@ final class FrameSubtractionFilter: CIFilter {
                                                        arguments: [imageA,
                                                                    imageB,
                                                                    imageC,
+                                                                   imageD,
                                                                    threshold])
         }
     }
