@@ -18,12 +18,12 @@ final class BackgroundSubtractionViewController: UIViewController {
     
     @objc func convertImage() {
         if let image = comparisonConversionView.beforeImage.image,
+           let inputImage = CIImage(image: image),
            let subImage = UIImage(named: "backgroundSubtraction"),
            let subCIImage = subImage.toCIImage() {
-            let filter = BackgroundSubtractionFilter(threshold: 0.3,
+            let filter = BackgroundSubtractionFilter(inputImage: inputImage,
+                                                     threshold: 0.3,
                                                      subImage: subCIImage)
-            filter.inputImage = CIImage(image: image)
-
             if let output = filter.outputImage {
                 let bwUIImage = UIImage(ciImage: output)
                 comparisonConversionView.afterImage.image = bwUIImage
@@ -40,6 +40,11 @@ final class BackgroundSubtractionViewController: UIViewController {
 //        } else {
 //            comparisonConversionView.afterImage.image = UIImage(named: "error")
 //        }
+    }
+    
+    @IBAction func tapAction(_ sender: Any) {
+        self.present(FrameSubtractionViewController.loadFromNib(), animated: true)
+//        self.present(GrayscaleConversionViewController.loadFromNib(), animated: true)
     }
 }
 

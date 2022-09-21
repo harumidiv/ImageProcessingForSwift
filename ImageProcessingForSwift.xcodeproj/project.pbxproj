@@ -12,6 +12,10 @@
 		49210A1A28D75297001516B5 /* BinarizationFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1928D75297001516B5 /* BinarizationFilter.swift */; };
 		49210A1C28D767C7001516B5 /* BackgroundSubtractionFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1B28D767C7001516B5 /* BackgroundSubtractionFilter.swift */; };
 		49210A1E28D76FC3001516B5 /* UIImage+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A1D28D76FC3001516B5 /* UIImage+Addition.swift */; };
+		49210A2228D816CF001516B5 /* FrameSubtractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A2028D816CF001516B5 /* FrameSubtractionViewController.swift */; };
+		49210A2328D816CF001516B5 /* FrameSubtractionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49210A2128D816CF001516B5 /* FrameSubtractionViewController.xib */; };
+		49210A2628D8D165001516B5 /* FrameSubtractionFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A2528D8D165001516B5 /* FrameSubtractionFilter.swift */; };
+		49210A2828D95E56001516B5 /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A2728D95E56001516B5 /* AVCapture.swift */; };
 		49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */; };
 		49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */; };
 		49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BDA28D5E5C600C2CD04 /* ViewController.swift */; };
@@ -68,6 +72,10 @@
 		49210A1928D75297001516B5 /* BinarizationFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarizationFilter.swift; sourceTree = "<group>"; };
 		49210A1B28D767C7001516B5 /* BackgroundSubtractionFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSubtractionFilter.swift; sourceTree = "<group>"; };
 		49210A1D28D76FC3001516B5 /* UIImage+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Addition.swift"; sourceTree = "<group>"; };
+		49210A2028D816CF001516B5 /* FrameSubtractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSubtractionViewController.swift; sourceTree = "<group>"; };
+		49210A2128D816CF001516B5 /* FrameSubtractionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrameSubtractionViewController.xib; sourceTree = "<group>"; };
+		49210A2528D8D165001516B5 /* FrameSubtractionFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSubtractionFilter.swift; sourceTree = "<group>"; };
+		49210A2728D95E56001516B5 /* AVCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture.swift; sourceTree = "<group>"; };
 		49C53BD328D5E5C600C2CD04 /* ImageProcessingForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessingForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +110,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49210A1F28D816B9001516B5 /* FrameSubtraction */ = {
+			isa = PBXGroup;
+			children = (
+				49210A2028D816CF001516B5 /* FrameSubtractionViewController.swift */,
+				49210A2128D816CF001516B5 /* FrameSubtractionViewController.xib */,
+				49210A2528D8D165001516B5 /* FrameSubtractionFilter.swift */,
+			);
+			path = FrameSubtraction;
+			sourceTree = "<group>";
+		};
+		49210A2928D9C716001516B5 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BF028D5E6AA00C2CD04 /* PixelBuffer.swift */,
+				49C53BF728D5E7E300C2CD04 /* ChannelSwap */,
+				49C53BF228D5E75A00C2CD04 /* GrayscaleConversion */,
+				49C53BEB28D5E64D00C2CD04 /* Binarization */,
+				49C53C0428D603E900C2CD04 /* BackgroundSubtraction */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		49210A2A28D9C736001516B5 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				49210A1F28D816B9001516B5 /* FrameSubtraction */,
+				49210A2728D95E56001516B5 /* AVCapture.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		49210A2B28D9C764001516B5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BDF28D5E5C700C2CD04 /* Assets.xcassets */,
+				49C53BE128D5E5C700C2CD04 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		49210A2C28D9C7A0001516B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BFC28D5E87900C2CD04 /* CustomView */,
+				49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */,
+				49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */,
+				49C53BDA28D5E5C600C2CD04 /* ViewController.swift */,
+				49C53BDC28D5E5C600C2CD04 /* Main.storyboard */,
+				49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		49C53BCA28D5E5C600C2CD04 = {
 			isa = PBXGroup;
 			children = (
@@ -123,14 +184,8 @@
 			children = (
 				49C53CB128D7349400C2CD04 /* Metal */,
 				49C53C0128D5F6AA00C2CD04 /* Extension */,
-				49C53BFC28D5E87900C2CD04 /* CustomView */,
-				49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */,
-				49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */,
-				49C53BDA28D5E5C600C2CD04 /* ViewController.swift */,
-				49C53BDC28D5E5C600C2CD04 /* Main.storyboard */,
-				49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */,
-				49C53BDF28D5E5C700C2CD04 /* Assets.xcassets */,
-				49C53BE128D5E5C700C2CD04 /* LaunchScreen.storyboard */,
+				49210A2C28D9C7A0001516B5 /* View */,
+				49210A2B28D9C764001516B5 /* Resource */,
 				49C53BE428D5E5C700C2CD04 /* Info.plist */,
 			);
 			path = ImageProcessingForSwift;
@@ -139,11 +194,8 @@
 		49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */ = {
 			isa = PBXGroup;
 			children = (
-				49C53BF028D5E6AA00C2CD04 /* PixelBuffer.swift */,
-				49C53BF728D5E7E300C2CD04 /* ChannelSwap */,
-				49C53BF228D5E75A00C2CD04 /* GrayscaleConversion */,
-				49C53BEB28D5E64D00C2CD04 /* Binarization */,
-				49C53C0428D603E900C2CD04 /* BackgroundSubtraction */,
+				49210A2928D9C716001516B5 /* Image */,
+				49210A2A28D9C736001516B5 /* Movie */,
 			);
 			path = ImageProcessingDetail;
 			sourceTree = "<group>";
@@ -274,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49210A2328D816CF001516B5 /* FrameSubtractionViewController.xib in Resources */,
 				49C53BEF28D5E67F00C2CD04 /* BinarizationViewController.xib in Resources */,
 				49C53BFB28D5E7F000C2CD04 /* ChannelSwapViewController.xib in Resources */,
 				49C53BE328D5E5C700C2CD04 /* LaunchScreen.storyboard in Resources */,
@@ -293,8 +346,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				49C53BEE28D5E67F00C2CD04 /* BinarizationViewController.swift in Sources */,
+				49210A2828D95E56001516B5 /* AVCapture.swift in Sources */,
 				49210A1A28D75297001516B5 /* BinarizationFilter.swift in Sources */,
 				49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */,
+				49210A2228D816CF001516B5 /* FrameSubtractionViewController.swift in Sources */,
 				49C53BF128D5E6AA00C2CD04 /* PixelBuffer.swift in Sources */,
 				49210A1628D73FCF001516B5 /* GrayscaleFilter.swift in Sources */,
 				49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */,
@@ -307,6 +362,7 @@
 				49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */,
 				49C53CAE28D731BF00C2CD04 /* Kernel.ci.metal in Sources */,
 				49C53BFA28D5E7F000C2CD04 /* ChannelSwapViewController.swift in Sources */,
+				49210A2628D8D165001516B5 /* FrameSubtractionFilter.swift in Sources */,
 				49210A1C28D767C7001516B5 /* BackgroundSubtractionFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

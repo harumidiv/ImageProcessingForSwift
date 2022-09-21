@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5U-DU-Dhg" customClass="ComparisonConversionView" customModule="ImageProcessingForSwift" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="271.5" width="414" height="590.5"/>
+                    <rect key="frame" x="0.0" y="271.5" width="414" height="353"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-sm-yK4">
@@ -50,7 +50,8 @@
                 <constraint firstItem="K5U-DU-Dhg" firstAttribute="top" secondItem="9rl-sm-yK4" secondAttribute="bottom" id="JYS-3r-OC2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K5U-DU-Dhg" secondAttribute="trailing" id="Pxg-it-WG0"/>
                 <constraint firstItem="K5U-DU-Dhg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cEN-Hx-q5V"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="K5U-DU-Dhg" secondAttribute="bottom" id="yxM-E6-6vL"/>
+                <constraint firstItem="K5U-DU-Dhg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="jgT-Cw-6cx"/>
+                <constraint firstItem="K5U-DU-Dhg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lQS-5k-gjv"/>
             </constraints>
             <point key="canvasLocation" x="139" y="117"/>
         </view>

@@ -19,7 +19,7 @@ final class ChannelSwapViewController: UIViewController {
         if let image = comparisonConversionView.beforeImage.image {
             let filter = ChannelSwapFilter()
             filter.inputImage = CIImage(image: image)
-            
+
             if let output = filter.outputImage {
                 let bwUIImage = UIImage(ciImage: output)
                 comparisonConversionView.afterImage.image = bwUIImage
