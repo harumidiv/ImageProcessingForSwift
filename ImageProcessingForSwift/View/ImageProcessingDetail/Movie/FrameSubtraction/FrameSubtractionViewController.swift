@@ -22,6 +22,11 @@ final class FrameSubtractionViewController: UIViewController {
         super.viewDidLoad()
         avCapture.delegate = self
     }
+    
+    deinit {
+        print("aaaaa")
+    }
+
 }
 
 extension FrameSubtractionViewController: AVCaptureDelegate {

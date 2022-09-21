@@ -45,11 +45,16 @@ final class ViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = "画像処理"
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        if let indexPath = tableView.indexPathForSelectedRow {
-//            tableView.deselectRow(at: indexPath, animated: true)
-//        }
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
 
@@ -75,6 +80,6 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = imageProcessingList[indexPath.section].dmageProcessingDataList[indexPath.row].viewController
-        self.present(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
