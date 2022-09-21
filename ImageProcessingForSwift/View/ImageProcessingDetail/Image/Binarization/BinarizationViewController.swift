@@ -8,8 +8,8 @@
 import UIKit
 
 final class BinarizationViewController: UIViewController {
-
     @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
+    private var selectedType: SelectedType = .metal
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,33 +17,32 @@ final class BinarizationViewController: UIViewController {
     }
     
     @objc func convertImage() {
-        if let image = comparisonConversionView.beforeImage.image {
+        guard let image = comparisonConversionView.beforeImage.image,
+              let pixelBuffer = PixelBuffer(uiImage: image) else {
+            comparisonConversionView.afterImage.image = UIImage(named: "error")
+            return
+        }
+        
+        switch selectedType {
+        case .metal:
             let filter = BinarizationFilter(threshold: 0.3)
             filter.inputImage = CIImage(image: image)
             
             if let output = filter.outputImage {
-                let bwUIImage = UIImage(ciImage: output)
-                comparisonConversionView.afterImage.image = bwUIImage
+                comparisonConversionView.afterImage.image = UIImage(ciImage: output)
+            } else {
+                comparisonConversionView.afterImage.image = UIImage(named: "error")
             }
-        } else {
-            comparisonConversionView.afterImage.image = UIImage(named: "error")
+        case .uikit:
+            let (r, g, b, a) = pixelBuffer.getRGBA()
+            comparisonConversionView.afterImage.image = image.createBinarizedImage(r: r, g: g, b: b, a: a)
         }
-        
-        
-//        if let image = comparisonConversionView.beforeImage.image,
-//           let pixelBuffer = PixelBuffer(uiImage: image) {
-//            let (r, g, b, a) = pixelBuffer.getRGBA()
-//            comparisonConversionView.afterImage.image = image.createBinarizedImage(r: r, g: g, b: b, a: a)
-//
-//        } else {
-//            comparisonConversionView.afterImage.image = UIImage(named: "error")
-//        }
     }
 }
 
 extension BinarizationViewController: CustomSegmentedControlViewDelegate {
     func changeSelectedRow(number: Int) {
-        print("値が切り替えられたよ")
+        selectedType = .init(rawValue: number) ?? .metal
     }
 }
 

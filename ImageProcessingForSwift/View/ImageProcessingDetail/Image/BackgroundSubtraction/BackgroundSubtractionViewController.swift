@@ -9,6 +9,7 @@ import UIKit
 
 final class BackgroundSubtractionViewController: UIViewController {
     @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
+    private var selectedType: SelectedType = .metal
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,40 +17,36 @@ final class BackgroundSubtractionViewController: UIViewController {
     }
     
     @objc func convertImage() {
-        if let image = comparisonConversionView.beforeImage.image,
-           let inputImage = CIImage(image: image),
-           let subImage = UIImage(named: "backgroundSubtraction"),
-           let subCIImage = subImage.toCIImage() {
+        guard let image = comparisonConversionView.beforeImage.image,
+              let subImage = UIImage(named: "backgroundSubtraction"),
+              let pixelBuffer = PixelBuffer(uiImage: image),
+              let inputImage = CIImage(image: image),
+              let subCIImage = subImage.toCIImage() else {
+            comparisonConversionView.afterImage.image = UIImage(named: "error")
+            return
+        }
+        
+        
+        switch selectedType {
+        case .metal:
             let filter = BackgroundSubtractionFilter(inputImage: inputImage,
                                                      threshold: 0.3,
                                                      subImage: subCIImage)
             if let output = filter.outputImage {
-                let bwUIImage = UIImage(ciImage: output)
-                comparisonConversionView.afterImage.image = bwUIImage
+                comparisonConversionView.afterImage.image = UIImage(ciImage: output)
+            } else {
+                comparisonConversionView.afterImage.image = UIImage(named: "error")
             }
-        } else {
-            comparisonConversionView.afterImage.image = UIImage(named: "error")
+        case .uikit:
+            let (r, g, b, a) = pixelBuffer.getRGBA()
+            comparisonConversionView.afterImage.image = image.createBackgroundSubtractionImage(subtractionImage: subImage, r: r, g: g, b: b, a: a)
         }
-        
-//        if let image = comparisonConversionView.beforeImage.image,
-//           let pixelBuffer = PixelBuffer(uiImage: image) {
-//            let (r, g, b, a) = pixelBuffer.getRGBA()
-//            comparisonConversionView.afterImage.image = image.createBackgroundSubtractionImage(subtractionImage: UIImage(named: "backgroundSubtraction"), r: r, g: g, b: b, a: a)
-//
-//        } else {
-//            comparisonConversionView.afterImage.image = UIImage(named: "error")
-//        }
-    }
-    
-    @IBAction func tapAction(_ sender: Any) {
-        self.present(FrameSubtractionViewController.loadFromNib(), animated: true)
-//        self.present(GrayscaleConversionViewController.loadFromNib(), animated: true)
     }
 }
 
 extension BackgroundSubtractionViewController: CustomSegmentedControlViewDelegate {
     func changeSelectedRow(number: Int) {
-        print("値が切り替えられたよ")
+        selectedType = .init(rawValue: number) ?? .metal
     }
 }
 

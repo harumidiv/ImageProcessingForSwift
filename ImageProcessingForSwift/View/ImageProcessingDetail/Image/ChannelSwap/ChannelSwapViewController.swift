@@ -9,6 +9,7 @@ import UIKit
 
 final class ChannelSwapViewController: UIViewController {
     @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
+    private var selectedType: SelectedType = .metal
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,33 +17,30 @@ final class ChannelSwapViewController: UIViewController {
     }
     
     @objc func convertImage() {
-        if let image = comparisonConversionView.beforeImage.image {
-            let filter = ChannelSwapFilter()
-            filter.inputImage = CIImage(image: image)
-
-            if let output = filter.outputImage {
-                let bwUIImage = UIImage(ciImage: output)
-                comparisonConversionView.afterImage.image = bwUIImage
-            }
-        } else {
+        guard let image = comparisonConversionView.beforeImage.image,
+              let pixelBuffer = PixelBuffer(uiImage: image) else {
             comparisonConversionView.afterImage.image = UIImage(named: "error")
+            return
         }
         
-        
-//        if let image = comparisonConversionView.beforeImage.image,
-//           let pixelBuffer = PixelBuffer(uiImage: image) {
-//            let (r, g, b, a) = pixelBuffer.getRGBA()
-//            comparisonConversionView.afterImage.image = image.createImage(r: g, g: b, b: r, a: a)
-//
-//        } else {
-//            comparisonConversionView.afterImage.image = UIImage(named: "error")
-//        }
+        switch selectedType {
+        case .metal:
+            let filter = ChannelSwapFilter()
+            filter.inputImage = CIImage(image: image)
+            
+            if let output = filter.outputImage {
+                comparisonConversionView.afterImage.image = UIImage(ciImage: output)
+            }
+        case .uikit:
+            let (r, g, b, a) = pixelBuffer.getRGBA()
+            comparisonConversionView.afterImage.image = image.createImage(r: g, g: b, b: r, a: a)
+        }
     }
 }
 
 extension ChannelSwapViewController: CustomSegmentedControlViewDelegate {
     func changeSelectedRow(number: Int) {
-        print("値が切り替えられたよ")
+        selectedType = .init(rawValue: number) ?? .metal
     }
 }
 

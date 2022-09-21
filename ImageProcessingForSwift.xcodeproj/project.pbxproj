@@ -17,7 +17,6 @@
 		49210A2628D8D165001516B5 /* FrameSubtractionFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A2528D8D165001516B5 /* FrameSubtractionFilter.swift */; };
 		49210A2828D95E56001516B5 /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A2728D95E56001516B5 /* AVCapture.swift */; };
 		49210A2E28DAAC5F001516B5 /* CustomSegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A2D28DAAC5F001516B5 /* CustomSegmentedControlView.swift */; };
-		49210A3028DAAC84001516B5 /* CustomSegmentedControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49210A2F28DAAC84001516B5 /* CustomSegmentedControlView.xib */; };
 		49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */; };
 		49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */; };
 		49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BDA28D5E5C600C2CD04 /* ViewController.swift */; };
@@ -79,7 +78,6 @@
 		49210A2528D8D165001516B5 /* FrameSubtractionFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSubtractionFilter.swift; sourceTree = "<group>"; };
 		49210A2728D95E56001516B5 /* AVCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture.swift; sourceTree = "<group>"; };
 		49210A2D28DAAC5F001516B5 /* CustomSegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControlView.swift; sourceTree = "<group>"; };
-		49210A2F28DAAC84001516B5 /* CustomSegmentedControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSegmentedControlView.xib; sourceTree = "<group>"; };
 		49C53BD328D5E5C600C2CD04 /* ImageProcessingForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessingForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 				49C53BFD28D5E8D400C2CD04 /* ComparisonConversionView.swift */,
 				49C53BFF28D5E8E500C2CD04 /* ComparisonConversionView.xib */,
 				49210A2D28DAAC5F001516B5 /* CustomSegmentedControlView.swift */,
-				49210A2F28DAAC84001516B5 /* CustomSegmentedControlView.xib */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -340,7 +337,6 @@
 				49C53C0028D5E8E500C2CD04 /* ComparisonConversionView.xib in Resources */,
 				49C53C0828D6040600C2CD04 /* BackgroundSubtractionViewController.xib in Resources */,
 				49C53BE028D5E5C700C2CD04 /* Assets.xcassets in Resources */,
-				49210A3028DAAC84001516B5 /* CustomSegmentedControlView.xib in Resources */,
 				49C53BDE28D5E5C600C2CD04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

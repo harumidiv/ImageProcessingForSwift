@@ -19,10 +19,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5U-DU-Dhg" customClass="ComparisonConversionView" customModule="ImageProcessingForSwift" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="271.5" width="414" height="353"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-sm-yK4">
                     <rect key="frame" x="103.5" y="44" width="207" height="227.5"/>
                     <subviews>
@@ -40,6 +36,10 @@
                         </label>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5U-DU-Dhg" customClass="ComparisonConversionView" customModule="ImageProcessingForSwift" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="271.5" width="414" height="453"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -47,10 +47,10 @@
                 <constraint firstItem="9rl-sm-yK4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="17u-lJ-k7w"/>
                 <constraint firstItem="9rl-sm-yK4" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="54U-8v-N3L"/>
                 <constraint firstItem="9rl-sm-yK4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="An3-wN-VbU"/>
+                <constraint firstItem="K5U-DU-Dhg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="50" id="D7L-Jt-Cz0"/>
                 <constraint firstItem="K5U-DU-Dhg" firstAttribute="top" secondItem="9rl-sm-yK4" secondAttribute="bottom" id="JYS-3r-OC2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K5U-DU-Dhg" secondAttribute="trailing" id="Pxg-it-WG0"/>
                 <constraint firstItem="K5U-DU-Dhg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cEN-Hx-q5V"/>
-                <constraint firstItem="K5U-DU-Dhg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="jgT-Cw-6cx"/>
                 <constraint firstItem="K5U-DU-Dhg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lQS-5k-gjv"/>
             </constraints>
             <point key="canvasLocation" x="139" y="117"/>

@@ -33,7 +33,7 @@ final class ComparisonConversionView: UIView {
         segmentedControl.bottomAnchor.constraint(equalTo: segmentedBaseView.bottomAnchor).isActive = true
         segmentedControl.leadingAnchor.constraint(equalTo: segmentedBaseView.leadingAnchor, constant: 40).isActive = true
         segmentedControl.trailingAnchor.constraint(equalTo: segmentedBaseView.trailingAnchor, constant: -40).isActive = true
-        segmentedControl.setup(tabTitleList: ["Metal", "UIKit"], parentCenterX: bounds.width/2, delegate: delegate)
+        segmentedControl.setup(tabTitleList: ["Metal", "UIKit"], parentCenterX: UIScreen.main.bounds.size.width/2, delegate: delegate)
     }
     
     // MARK: - Initializer

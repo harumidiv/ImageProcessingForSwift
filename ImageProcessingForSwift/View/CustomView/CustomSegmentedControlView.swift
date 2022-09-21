@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum SelectedType: Int {
+    case metal
+    case uikit
+}
+
 protocol CustomSegmentedControlViewDelegate {
     
     /// 選択されているTabが切り替えられた時のイベント
@@ -49,6 +54,9 @@ class CustomSegmentedControlView: UIView {
         guard !tabTitleList.isEmpty else {
             return
         }
+        
+        backgroundColor = .gray
+        layer.cornerRadius = 16
         
         self.centerXPos = parentCenterX - sideMargin
         self.delegate = delegate

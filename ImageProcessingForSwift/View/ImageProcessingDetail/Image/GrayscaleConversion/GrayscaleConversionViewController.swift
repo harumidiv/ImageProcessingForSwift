@@ -9,6 +9,7 @@ import UIKit
 
 final class GrayscaleConversionViewController: UIViewController {
     @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
+    private var selectedType: SelectedType = .metal
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,34 +17,34 @@ final class GrayscaleConversionViewController: UIViewController {
     }
 
     @objc func convertImage() {
+        guard let image = comparisonConversionView.beforeImage.image,
+              let pixelBuffer = PixelBuffer(uiImage: image) else {
+            comparisonConversionView.afterImage.image = UIImage(named: "error")
+            return
+        }
         
-        if let image = comparisonConversionView.beforeImage.image {
+        switch selectedType {
+            
+        case .metal:
             let filter = GrayscaleFilter()
             filter.inputImage = CIImage(image: image)
             
             if let output = filter.outputImage {
-                let bwUIImage = UIImage(ciImage: output)
-                comparisonConversionView.afterImage.image = bwUIImage
+                comparisonConversionView.afterImage.image = UIImage(ciImage: output)
+            } else {
+                comparisonConversionView.afterImage.image = UIImage(named: "error")
             }
-        } else {
-            comparisonConversionView.afterImage.image = UIImage(named: "error")
+            
+        case .uikit:
+            let (r, g, b, a) = pixelBuffer.getRGBA()
+            comparisonConversionView.afterImage.image = image.createGrayImage(r: r, g: g, b: b, a: a)
         }
-        
-        
-//        if let image = comparisonConversionView.beforeImage.image,
-//           let pixelBuffer = PixelBuffer(uiImage: image) {
-//            let (r, g, b, a) = pixelBuffer.getRGBA()
-//            comparisonConversionView.afterImage.image = image.createGrayImage(r: r, g: g, b: b, a: a)
-//
-//        } else {
-//            comparisonConversionView.afterImage.image = UIImage(named: "error")
-//        }
     }
 }
 
 extension GrayscaleConversionViewController: CustomSegmentedControlViewDelegate {
     func changeSelectedRow(number: Int) {
-        print("値が切り替えられたよ")
+        selectedType = .init(rawValue: number) ?? .metal
     }
 }
 
