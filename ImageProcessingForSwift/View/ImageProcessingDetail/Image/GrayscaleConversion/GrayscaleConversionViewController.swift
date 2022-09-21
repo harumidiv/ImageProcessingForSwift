@@ -14,10 +14,12 @@ final class GrayscaleConversionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        comparisonConversionView.setup(target: self, action: #selector(convertImage), segmentedControlDelegate: self)
+        comparisonConversionView.setup(target: self,
+                                       action: #selector(convertImage),
+                                       segmentedControlDelegate: self)
     }
 
-    @objc func convertImage() {
+    @objc private func convertImage() {
         guard let image = comparisonConversionView.beforeImage.image,
               let pixelBuffer = PixelBuffer(uiImage: image) else {
             comparisonConversionView.afterImage.image = UIImage(named: "error")

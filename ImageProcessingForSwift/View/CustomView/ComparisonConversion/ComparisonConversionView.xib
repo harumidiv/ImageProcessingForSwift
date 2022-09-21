@@ -13,16 +13,17 @@
                 <outlet property="afterImage" destination="uD0-VE-xuX" id="EXk-8g-V36"/>
                 <outlet property="beforeImage" destination="VjR-m8-kr6" id="FhA-Ts-xDa"/>
                 <outlet property="convertButton" destination="qXh-6w-j7L" id="eBr-36-8fr"/>
+                <outlet property="resetButton" destination="0Jr-1O-9xf" id="85b-cN-fnT"/>
                 <outlet property="segmentedBaseView" destination="JvF-Jg-a5M" id="65x-7l-MaY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="591" height="502"/>
+            <rect key="frame" x="0.0" y="0.0" width="591" height="567"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ufo-EH-Mbr">
-                    <rect key="frame" x="0.0" y="73" width="591" height="356.5"/>
+                    <rect key="frame" x="0.0" y="105.5" width="591" height="356.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JvF-Jg-a5M">
                             <rect key="frame" x="0.0" y="0.0" width="591" height="56"/>
@@ -61,38 +62,67 @@
                         </view>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXh-6w-j7L">
-                    <rect key="frame" x="195.5" y="459.5" width="200" height="36"/>
-                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSN-bH-a1y">
+                    <rect key="frame" x="16" y="492" width="559" height="36"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXh-6w-j7L">
+                            <rect key="frame" x="16" y="0.0" width="255.5" height="36"/>
+                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="変換"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jr-1O-9xf">
+                            <rect key="frame" x="287.5" y="0.0" width="255.5" height="36"/>
+                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="リセット"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="resetAction:" destination="-1" eventType="touchUpInside" id="sCC-uk-Ehi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="36" id="CBs-81-CjW"/>
-                        <constraint firstAttribute="width" constant="200" id="ZeP-sS-07W"/>
+                        <constraint firstItem="0Jr-1O-9xf" firstAttribute="leading" secondItem="qXh-6w-j7L" secondAttribute="trailing" constant="16" id="18Y-NW-8yA"/>
+                        <constraint firstAttribute="trailing" secondItem="0Jr-1O-9xf" secondAttribute="trailing" constant="16" id="2MT-UW-ASp"/>
+                        <constraint firstItem="qXh-6w-j7L" firstAttribute="width" secondItem="0Jr-1O-9xf" secondAttribute="width" id="2dL-be-tn5"/>
+                        <constraint firstAttribute="bottom" secondItem="0Jr-1O-9xf" secondAttribute="bottom" id="2nj-Mq-FKV"/>
+                        <constraint firstAttribute="height" constant="36" id="8ap-4g-x3g"/>
+                        <constraint firstItem="qXh-6w-j7L" firstAttribute="top" secondItem="lSN-bH-a1y" secondAttribute="top" id="F77-B4-v0p"/>
+                        <constraint firstAttribute="bottom" secondItem="qXh-6w-j7L" secondAttribute="bottom" id="OnT-ii-Nx0"/>
+                        <constraint firstItem="qXh-6w-j7L" firstAttribute="leading" secondItem="lSN-bH-a1y" secondAttribute="leading" constant="16" id="QDA-24-VRk"/>
+                        <constraint firstItem="0Jr-1O-9xf" firstAttribute="top" secondItem="lSN-bH-a1y" secondAttribute="top" id="hqX-QA-THZ"/>
                     </constraints>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="変換開始"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </button>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="lSN-bH-a1y" firstAttribute="top" secondItem="ufo-EH-Mbr" secondAttribute="bottom" constant="30" id="3Jd-AY-68B"/>
                 <constraint firstAttribute="trailing" secondItem="ufo-EH-Mbr" secondAttribute="trailing" id="BX2-CY-Qq1"/>
+                <constraint firstItem="lSN-bH-a1y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="SZM-qz-5j1"/>
                 <constraint firstItem="ufo-EH-Mbr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VXg-f6-cb4"/>
-                <constraint firstItem="qXh-6w-j7L" firstAttribute="top" secondItem="ufo-EH-Mbr" secondAttribute="bottom" constant="30" id="WjL-pu-yXe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lSN-bH-a1y" secondAttribute="trailing" constant="16" id="VrS-QM-xou"/>
                 <constraint firstItem="ufo-EH-Mbr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gji-Yd-kcd"/>
                 <constraint firstItem="ufo-EH-Mbr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="haw-lb-qUq"/>
                 <constraint firstItem="ufo-EH-Mbr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wMy-GM-02p"/>
-                <constraint firstItem="qXh-6w-j7L" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xy5-RP-6CE"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-193.47826086956522" y="-34.821428571428569"/>
+            <point key="canvasLocation" x="-193.47826086956522" y="-13.058035714285714"/>
         </view>
     </objects>
     <resources>

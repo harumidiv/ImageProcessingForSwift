@@ -19,6 +19,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5U-DU-Dhg" customClass="ComparisonConversionView" customModule="ImageProcessingForSwift" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="271.5" width="414" height="453"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-sm-yK4">
                     <rect key="frame" x="103.5" y="44" width="207" height="227.5"/>
                     <subviews>
@@ -36,10 +40,6 @@
                         </label>
                     </subviews>
                 </stackView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5U-DU-Dhg" customClass="ComparisonConversionView" customModule="ImageProcessingForSwift" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="271.5" width="414" height="453"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

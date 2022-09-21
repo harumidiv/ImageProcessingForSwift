@@ -17,7 +17,7 @@ final class ChannelSwapViewController: UIViewController {
         comparisonConversionView.setup(target: self, action: #selector(convertImage), segmentedControlDelegate: self)
     }
     
-    @objc func convertImage() {
+    @objc private func convertImage() {
         guard let image = comparisonConversionView.beforeImage.image,
               let pixelBuffer = PixelBuffer(uiImage: image) else {
             comparisonConversionView.afterImage.image = UIImage(named: "error")

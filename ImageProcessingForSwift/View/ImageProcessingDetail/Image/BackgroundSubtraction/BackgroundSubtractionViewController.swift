@@ -14,7 +14,9 @@ final class BackgroundSubtractionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        comparisonConversionView.setup(target: self, action: #selector(convertImage), segmentedControlDelegate: self)
+        comparisonConversionView.setup(target: self,
+                                       action: #selector(convertImage),
+                                       segmentedControlDelegate: self)
     }
     
     @objc func convertImage() {

@@ -12,10 +12,18 @@ final class ComparisonConversionView: UIView {
     @IBOutlet weak var afterImage: UIImageView!
     @IBOutlet private weak var segmentedBaseView: UIView!
     @IBOutlet private weak var convertButton: UIButton!
+    @IBOutlet private weak var resetButton: UIButton!
+    
+    private var prevImage: UIImage? = UIImage(named: "no_image")
     
     var segmentedControl: CustomSegmentedControlView!
     
-    func setup(before: UIImage? = UIImage(named: "harumi"), after: UIImage? = UIImage(named: "no_image"), target: Any?, action: Selector, segmentedControlDelegate: CustomSegmentedControlViewDelegate) {
+    func setup(before: UIImage? = UIImage(named: "harumi"),
+               after: UIImage? = UIImage(named: "no_image"),
+               target: Any?,
+               action: Selector,
+               segmentedControlDelegate: CustomSegmentedControlViewDelegate) {
+        self.prevImage = after
         afterImage.image = after
         beforeImage.image = before
         convertButton.addTarget(target,
@@ -56,4 +64,8 @@ final class ComparisonConversionView: UIView {
         self.addSubview(view)
     }
 
+    // MARK: Event
+    @IBAction func resetAction(_ sender: Any) {
+        afterImage.image = prevImage
+    }
 }
