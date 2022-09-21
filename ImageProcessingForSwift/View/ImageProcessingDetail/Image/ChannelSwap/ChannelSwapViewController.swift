@@ -9,34 +9,44 @@ import UIKit
 
 final class ChannelSwapViewController: UIViewController {
     @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
+    private var selectedType: SelectedType = .metal
+    private let indicatorViewController: IndicatorViewController = IndicatorViewController.loadFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        comparisonConversionView.setup(target: self, action: #selector(convertImage))
+        comparisonConversionView.setup(target: self, action: #selector(convertImage), segmentedControlDelegate: self)
     }
     
-    @objc func convertImage() {
-        if let image = comparisonConversionView.beforeImage.image {
-            let filter = ChannelSwapFilter()
-            filter.inputImage = CIImage(image: image)
-
-            if let output = filter.outputImage {
-                let bwUIImage = UIImage(ciImage: output)
-                comparisonConversionView.afterImage.image = bwUIImage
-            }
-        } else {
+    @objc private func convertImage() {
+        guard let image = comparisonConversionView.beforeImage.image,
+              let pixelBuffer = PixelBuffer(uiImage: image) else {
             comparisonConversionView.afterImage.image = UIImage(named: "error")
+            return
         }
         
+        indicatorViewController.modalPresentationStyle = .overCurrentContext
+        self.present(self.indicatorViewController, animated: false) {
+            switch self.selectedType {
+            case .metal:
+                let filter = ChannelSwapFilter()
+                filter.inputImage = CIImage(image: image)
+                
+                if let output = filter.outputImage {
+                    self.comparisonConversionView.afterImage.image = UIImage(ciImage: output)
+                }
+            case .uikit:
+                let (r, g, b, a) = pixelBuffer.getRGBA()
+                self.comparisonConversionView.afterImage.image = image.createImage(r: g, g: b, b: r, a: a)
+            }
+        }
         
-//        if let image = comparisonConversionView.beforeImage.image,
-//           let pixelBuffer = PixelBuffer(uiImage: image) {
-//            let (r, g, b, a) = pixelBuffer.getRGBA()
-//            comparisonConversionView.afterImage.image = image.createImage(r: g, g: b, b: r, a: a)
-//
-//        } else {
-//            comparisonConversionView.afterImage.image = UIImage(named: "error")
-//        }
+        indicatorViewController.dismiss(animated: false)
+    }
+}
+
+extension ChannelSwapViewController: CustomSegmentedControlViewDelegate {
+    func changeSelectedRow(number: Int) {
+        selectedType = .init(rawValue: number) ?? .metal
     }
 }
 

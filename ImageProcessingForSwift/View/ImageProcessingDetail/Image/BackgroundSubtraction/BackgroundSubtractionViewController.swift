@@ -2,49 +2,57 @@
 //  BackgroundSubtractionViewController.swift
 //  ImageProcessingForSwift
 //
-//  Created by 佐川 晴海 on 2022/09/17.
+//  Created by 佐川 晴海 on 2022/09/21.
 //
 
 import UIKit
 
-final class BackgroundSubtractionViewController: UIViewController {
-
+class BackgroundSubtractionViewController: UIViewController {
     @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
+    private var selectedType: SelectedType = .metal
+    private let indicatorViewController: IndicatorViewController = IndicatorViewController.loadFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        comparisonConversionView.setup(target: self, action: #selector(convertImage))
+        comparisonConversionView.setup(target: self,
+                                       action: #selector(convertImage),
+                                       segmentedControlDelegate: self)
     }
     
     @objc func convertImage() {
-        if let image = comparisonConversionView.beforeImage.image,
-           let inputImage = CIImage(image: image),
-           let subImage = UIImage(named: "backgroundSubtraction"),
-           let subCIImage = subImage.toCIImage() {
-            let filter = BackgroundSubtractionFilter(inputImage: inputImage,
-                                                     threshold: 0.3,
-                                                     subImage: subCIImage)
-            if let output = filter.outputImage {
-                let bwUIImage = UIImage(ciImage: output)
-                comparisonConversionView.afterImage.image = bwUIImage
-            }
-        } else {
+        guard let image = comparisonConversionView.beforeImage.image,
+              let subImage = UIImage(named: "backgroundSubtraction"),
+              let pixelBuffer = PixelBuffer(uiImage: image),
+              let inputImage = CIImage(image: image),
+              let subCIImage = subImage.toCIImage() else {
             comparisonConversionView.afterImage.image = UIImage(named: "error")
+            return
         }
         
-//        if let image = comparisonConversionView.beforeImage.image,
-//           let pixelBuffer = PixelBuffer(uiImage: image) {
-//            let (r, g, b, a) = pixelBuffer.getRGBA()
-//            comparisonConversionView.afterImage.image = image.createBackgroundSubtractionImage(subtractionImage: UIImage(named: "backgroundSubtraction"), r: r, g: g, b: b, a: a)
-//
-//        } else {
-//            comparisonConversionView.afterImage.image = UIImage(named: "error")
-//        }
+        indicatorViewController.modalPresentationStyle = .overCurrentContext
+        self.present(self.indicatorViewController, animated: false) {
+            switch self.selectedType {
+            case .metal:
+                let filter = BackgroundSubtractionFilter(inputImage: inputImage,
+                                                         threshold: 0.3,
+                                                         subImage: subCIImage)
+                if let output = filter.outputImage {
+                    self.comparisonConversionView.afterImage.image = UIImage(ciImage: output)
+                } else {
+                    self.comparisonConversionView.afterImage.image = UIImage(named: "error")
+                }
+            case .uikit:
+                let (r, g, b, a) = pixelBuffer.getRGBA()
+                self.comparisonConversionView.afterImage.image = image.createBackgroundSubtractionImage(subtractionImage: subImage, r: r, g: g, b: b, a: a)
+            }
+        }
+        indicatorViewController.dismiss(animated: false)
     }
-    
-    @IBAction func tapAction(_ sender: Any) {
-        self.present(FrameSubtractionViewController.loadFromNib(), animated: true)
-//        self.present(GrayscaleConversionViewController.loadFromNib(), animated: true)
+}
+
+extension BackgroundSubtractionViewController: CustomSegmentedControlViewDelegate {
+    func changeSelectedRow(number: Int) {
+        selectedType = .init(rawValue: number) ?? .metal
     }
 }
 
@@ -60,14 +68,14 @@ extension UIImage {
         
         let width:Int = Int(size.width)
         let height:Int = Int(size.height)
-     
+        
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         for w in 0..<width {
             for h in 0..<height {
                 let index = (w * width) + h
                 let isMatchColor: Bool = r[index] == subR[index]
-                                      && g[index] == subG[index]
-                                      && b[index] == subB[index]
+                && g[index] == subG[index]
+                && b[index] == subB[index]
                 let color: CGFloat = isMatchColor ? 255 : 0
                 UIColor(red: color, green: color, blue: color, alpha: a[index]).setFill()
                 let drawRect = CGRect(x: w, y: h, width: 1, height: 1)
@@ -83,7 +91,7 @@ extension UIImage {
     private func binarization(width: Int, height: Int, r:[CGFloat], g: [CGFloat], b:[CGFloat]) -> (r:[CGFloat], g: [CGFloat], b:[CGFloat]) {
         let threshold:CGFloat = 128/255
         var binarizedColor:[CGFloat] = []
-       
+        
         for w in 0..<width {
             for h in 0..<height {
                 let index = (w * width) + h

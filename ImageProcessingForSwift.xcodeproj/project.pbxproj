@@ -16,6 +16,11 @@
 		49210A2328D816CF001516B5 /* FrameSubtractionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49210A2128D816CF001516B5 /* FrameSubtractionViewController.xib */; };
 		49210A2628D8D165001516B5 /* FrameSubtractionFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A2528D8D165001516B5 /* FrameSubtractionFilter.swift */; };
 		49210A2828D95E56001516B5 /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A2728D95E56001516B5 /* AVCapture.swift */; };
+		49210A2E28DAAC5F001516B5 /* CustomSegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A2D28DAAC5F001516B5 /* CustomSegmentedControlView.swift */; };
+		49210A3528DABBB5001516B5 /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A3328DABBB5001516B5 /* IndicatorViewController.swift */; };
+		49210A3628DABBB5001516B5 /* IndicatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49210A3428DABBB5001516B5 /* IndicatorViewController.xib */; };
+		49210A3C28DAD298001516B5 /* BackgroundSubtractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49210A3A28DAD298001516B5 /* BackgroundSubtractionViewController.swift */; };
+		49210A3D28DAD298001516B5 /* BackgroundSubtractionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49210A3B28DAD298001516B5 /* BackgroundSubtractionViewController.xib */; };
 		49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */; };
 		49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */; };
 		49C53BDB28D5E5C600C2CD04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BDA28D5E5C600C2CD04 /* ViewController.swift */; };
@@ -32,8 +37,6 @@
 		49C53BFE28D5E8D400C2CD04 /* ComparisonConversionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53BFD28D5E8D400C2CD04 /* ComparisonConversionView.swift */; };
 		49C53C0028D5E8E500C2CD04 /* ComparisonConversionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C53BFF28D5E8E500C2CD04 /* ComparisonConversionView.xib */; };
 		49C53C0328D5F6C700C2CD04 /* UIVIewController+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */; };
-		49C53C0728D6040600C2CD04 /* BackgroundSubtractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53C0528D6040600C2CD04 /* BackgroundSubtractionViewController.swift */; };
-		49C53C0828D6040600C2CD04 /* BackgroundSubtractionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C53C0628D6040600C2CD04 /* BackgroundSubtractionViewController.xib */; };
 		49C53CAE28D731BF00C2CD04 /* Kernel.ci.metal in Sources */ = {isa = PBXBuildFile; fileRef = 49C53CAD28D731BF00C2CD04 /* Kernel.ci.metal */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +79,11 @@
 		49210A2128D816CF001516B5 /* FrameSubtractionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrameSubtractionViewController.xib; sourceTree = "<group>"; };
 		49210A2528D8D165001516B5 /* FrameSubtractionFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSubtractionFilter.swift; sourceTree = "<group>"; };
 		49210A2728D95E56001516B5 /* AVCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture.swift; sourceTree = "<group>"; };
+		49210A2D28DAAC5F001516B5 /* CustomSegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControlView.swift; sourceTree = "<group>"; };
+		49210A3328DABBB5001516B5 /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
+		49210A3428DABBB5001516B5 /* IndicatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndicatorViewController.xib; sourceTree = "<group>"; };
+		49210A3A28DAD298001516B5 /* BackgroundSubtractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSubtractionViewController.swift; sourceTree = "<group>"; };
+		49210A3B28DAD298001516B5 /* BackgroundSubtractionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundSubtractionViewController.xib; sourceTree = "<group>"; };
 		49C53BD328D5E5C600C2CD04 /* ImageProcessingForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessingForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,8 +102,6 @@
 		49C53BFD28D5E8D400C2CD04 /* ComparisonConversionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonConversionView.swift; sourceTree = "<group>"; };
 		49C53BFF28D5E8E500C2CD04 /* ComparisonConversionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonConversionView.xib; sourceTree = "<group>"; };
 		49C53C0228D5F6C700C2CD04 /* UIVIewController+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Addition.swift"; sourceTree = "<group>"; };
-		49C53C0528D6040600C2CD04 /* BackgroundSubtractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSubtractionViewController.swift; sourceTree = "<group>"; };
-		49C53C0628D6040600C2CD04 /* BackgroundSubtractionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundSubtractionViewController.xib; sourceTree = "<group>"; };
 		49C53CAD28D731BF00C2CD04 /* Kernel.ci.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Kernel.ci.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,13 +160,37 @@
 			isa = PBXGroup;
 			children = (
 				49C53BFC28D5E87900C2CD04 /* CustomView */,
-				49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */,
-				49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */,
 				49C53BDA28D5E5C600C2CD04 /* ViewController.swift */,
 				49C53BDC28D5E5C600C2CD04 /* Main.storyboard */,
 				49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		49210A3128DABB62001516B5 /* ComparisonConversion */ = {
+			isa = PBXGroup;
+			children = (
+				49C53BFD28D5E8D400C2CD04 /* ComparisonConversionView.swift */,
+				49C53BFF28D5E8E500C2CD04 /* ComparisonConversionView.xib */,
+			);
+			path = ComparisonConversion;
+			sourceTree = "<group>";
+		};
+		49210A3228DABB80001516B5 /* CustomSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				49210A2D28DAAC5F001516B5 /* CustomSegmentedControlView.swift */,
+			);
+			path = CustomSegmentedControl;
+			sourceTree = "<group>";
+		};
+		49210A3728DABBBA001516B5 /* IndicatorDialog */ = {
+			isa = PBXGroup;
+			children = (
+				49210A3328DABBB5001516B5 /* IndicatorViewController.swift */,
+				49210A3428DABBB5001516B5 /* IndicatorViewController.xib */,
+			);
+			path = IndicatorDialog;
 			sourceTree = "<group>";
 		};
 		49C53BCA28D5E5C600C2CD04 = {
@@ -186,6 +216,8 @@
 				49C53C0128D5F6AA00C2CD04 /* Extension */,
 				49210A2C28D9C7A0001516B5 /* View */,
 				49210A2B28D9C764001516B5 /* Resource */,
+				49C53BD628D5E5C600C2CD04 /* AppDelegate.swift */,
+				49C53BD828D5E5C600C2CD04 /* SceneDelegate.swift */,
 				49C53BE428D5E5C700C2CD04 /* Info.plist */,
 			);
 			path = ImageProcessingForSwift;
@@ -233,8 +265,9 @@
 		49C53BFC28D5E87900C2CD04 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				49C53BFD28D5E8D400C2CD04 /* ComparisonConversionView.swift */,
-				49C53BFF28D5E8E500C2CD04 /* ComparisonConversionView.xib */,
+				49210A3728DABBBA001516B5 /* IndicatorDialog */,
+				49210A3128DABB62001516B5 /* ComparisonConversion */,
+				49210A3228DABB80001516B5 /* CustomSegmentedControl */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -251,9 +284,9 @@
 		49C53C0428D603E900C2CD04 /* BackgroundSubtraction */ = {
 			isa = PBXGroup;
 			children = (
-				49C53C0528D6040600C2CD04 /* BackgroundSubtractionViewController.swift */,
-				49C53C0628D6040600C2CD04 /* BackgroundSubtractionViewController.xib */,
 				49210A1B28D767C7001516B5 /* BackgroundSubtractionFilter.swift */,
+				49210A3A28DAD298001516B5 /* BackgroundSubtractionViewController.swift */,
+				49210A3B28DAD298001516B5 /* BackgroundSubtractionViewController.xib */,
 			);
 			path = BackgroundSubtraction;
 			sourceTree = "<group>";
@@ -330,9 +363,10 @@
 				49C53BEF28D5E67F00C2CD04 /* BinarizationViewController.xib in Resources */,
 				49C53BFB28D5E7F000C2CD04 /* ChannelSwapViewController.xib in Resources */,
 				49C53BE328D5E5C700C2CD04 /* LaunchScreen.storyboard in Resources */,
+				49210A3D28DAD298001516B5 /* BackgroundSubtractionViewController.xib in Resources */,
+				49210A3628DABBB5001516B5 /* IndicatorViewController.xib in Resources */,
 				49C53BF628D5E76900C2CD04 /* GrayscaleConversionViewController.xib in Resources */,
 				49C53C0028D5E8E500C2CD04 /* ComparisonConversionView.xib in Resources */,
-				49C53C0828D6040600C2CD04 /* BackgroundSubtractionViewController.xib in Resources */,
 				49C53BE028D5E5C700C2CD04 /* Assets.xcassets in Resources */,
 				49C53BDE28D5E5C600C2CD04 /* Main.storyboard in Resources */,
 			);
@@ -353,17 +387,19 @@
 				49C53BF128D5E6AA00C2CD04 /* PixelBuffer.swift in Sources */,
 				49210A1628D73FCF001516B5 /* GrayscaleFilter.swift in Sources */,
 				49C53BD728D5E5C600C2CD04 /* AppDelegate.swift in Sources */,
+				49210A3528DABBB5001516B5 /* IndicatorViewController.swift in Sources */,
 				49C53BF528D5E76900C2CD04 /* GrayscaleConversionViewController.swift in Sources */,
 				49C53BFE28D5E8D400C2CD04 /* ComparisonConversionView.swift in Sources */,
 				49C53C0328D5F6C700C2CD04 /* UIVIewController+Addition.swift in Sources */,
 				49210A1E28D76FC3001516B5 /* UIImage+Addition.swift in Sources */,
+				49210A2E28DAAC5F001516B5 /* CustomSegmentedControlView.swift in Sources */,
 				49210A1828D7513D001516B5 /* ChannelSwapFilter.swift in Sources */,
-				49C53C0728D6040600C2CD04 /* BackgroundSubtractionViewController.swift in Sources */,
 				49C53BD928D5E5C600C2CD04 /* SceneDelegate.swift in Sources */,
 				49C53CAE28D731BF00C2CD04 /* Kernel.ci.metal in Sources */,
 				49C53BFA28D5E7F000C2CD04 /* ChannelSwapViewController.swift in Sources */,
 				49210A2628D8D165001516B5 /* FrameSubtractionFilter.swift in Sources */,
 				49210A1C28D767C7001516B5 /* BackgroundSubtractionFilter.swift in Sources */,
+				49210A3C28DAD298001516B5 /* BackgroundSubtractionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

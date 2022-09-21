@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IndicatorViewController" customModule="ImageProcessingForSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdz-53-05m">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.49874140940555911" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6A-Yt-Id7">
+                    <rect key="frame" x="179" y="420" width="56" height="56"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="GwV-0y-I0H">
+                            <rect key="frame" x="18" y="18" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="LLg-YY-Tky"/>
+                        <constraint firstItem="GwV-0y-I0H" firstAttribute="centerX" secondItem="Q6A-Yt-Id7" secondAttribute="centerX" id="OP9-B1-EkB"/>
+                        <constraint firstItem="GwV-0y-I0H" firstAttribute="centerY" secondItem="Q6A-Yt-Id7" secondAttribute="centerY" id="PIb-da-EcF"/>
+                        <constraint firstAttribute="height" constant="56" id="bPH-oa-Jab"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Q6A-Yt-Id7" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="5pw-GT-yu2"/>
+                <constraint firstItem="Rdz-53-05m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="808-cx-SCK"/>
+                <constraint firstAttribute="bottom" secondItem="Rdz-53-05m" secondAttribute="bottom" id="Sf8-NU-xvu"/>
+                <constraint firstItem="Rdz-53-05m" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cnt-Wq-dbs"/>
+                <constraint firstItem="Q6A-Yt-Id7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="giR-Z1-TgN"/>
+                <constraint firstAttribute="trailing" secondItem="Rdz-53-05m" secondAttribute="trailing" id="xsj-eW-mPT"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="132.58928571428572"/>
+        </view>
+    </objects>
+</document>

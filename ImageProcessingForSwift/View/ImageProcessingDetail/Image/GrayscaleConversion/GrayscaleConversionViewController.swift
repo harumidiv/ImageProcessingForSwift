@@ -9,35 +9,48 @@ import UIKit
 
 final class GrayscaleConversionViewController: UIViewController {
     @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
+    private var selectedType: SelectedType = .metal
+    private let indicatorViewController: IndicatorViewController = IndicatorViewController.loadFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        comparisonConversionView.setup(target: self, action: #selector(convertImage))
+        comparisonConversionView.setup(target: self,
+                                       action: #selector(convertImage),
+                                       segmentedControlDelegate: self)
     }
 
-    @objc func convertImage() {
-        
-        if let image = comparisonConversionView.beforeImage.image {
-            let filter = GrayscaleFilter()
-            filter.inputImage = CIImage(image: image)
-            
-            if let output = filter.outputImage {
-                let bwUIImage = UIImage(ciImage: output)
-                comparisonConversionView.afterImage.image = bwUIImage
-            }
-        } else {
+    @objc private func convertImage() {
+        guard let image = comparisonConversionView.beforeImage.image,
+              let pixelBuffer = PixelBuffer(uiImage: image) else {
             comparisonConversionView.afterImage.image = UIImage(named: "error")
+            return
         }
         
-        
-//        if let image = comparisonConversionView.beforeImage.image,
-//           let pixelBuffer = PixelBuffer(uiImage: image) {
-//            let (r, g, b, a) = pixelBuffer.getRGBA()
-//            comparisonConversionView.afterImage.image = image.createGrayImage(r: r, g: g, b: b, a: a)
-//
-//        } else {
-//            comparisonConversionView.afterImage.image = UIImage(named: "error")
-//        }
+        indicatorViewController.modalPresentationStyle = .overCurrentContext
+        self.present(self.indicatorViewController, animated: false) {
+            switch self.selectedType {
+            case .metal:
+                let filter = GrayscaleFilter()
+                filter.inputImage = CIImage(image: image)
+                
+                if let output = filter.outputImage {
+                    self.comparisonConversionView.afterImage.image = UIImage(ciImage: output)
+                } else {
+                    self.comparisonConversionView.afterImage.image = UIImage(named: "error")
+                }
+                
+            case .uikit:
+                let (r, g, b, a) = pixelBuffer.getRGBA()
+                self.comparisonConversionView.afterImage.image = image.createGrayImage(r: r, g: g, b: b, a: a)
+            }
+        }
+        indicatorViewController.dismiss(animated: false)
+    }
+}
+
+extension GrayscaleConversionViewController: CustomSegmentedControlViewDelegate {
+    func changeSelectedRow(number: Int) {
+        selectedType = .init(rawValue: number) ?? .metal
     }
 }
 

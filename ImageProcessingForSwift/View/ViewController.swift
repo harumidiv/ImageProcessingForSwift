@@ -15,10 +15,12 @@ final class ViewController: UIViewController {
     
     struct ImageProcessingData {
         enum ImageProcessType {
+            // 画像
             case channelSwap
             case grayScale
             case binarization
             case backgroundSubtraction
+            // 動画
             case frameSubTraction
         }
         let type: ImageProcessType
