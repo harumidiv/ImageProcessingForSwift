@@ -23,9 +23,6 @@ final class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     }()
     
     private var captureSession: AVCaptureSession = AVCaptureSession()
-//    private var prevImageA: CIImage?
-//    private var prevImageB: CIImage?
-    
     
     override init(){
         super.init()
@@ -87,32 +84,6 @@ final class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         
         // 画像作成
         return newContext.makeImage()!
-        
-//        let ciImage = CIImage(cgImage: imageRef, options: nil)
-//
-//
-//        guard let prevImageA = prevImageA,
-//              let prevImageB = prevImageB else {
-//            self.prevImageB = prevImageA
-//            self.prevImageA = ciImage
-//            return UIImage(cgImage: imageRef, scale: 1.0, orientation: UIImage.Orientation.up)
-//        }
-//
-//
-//        let filter = FrameSubtractionFilter(imageA: prevImageA,
-//                                            imageB: prevImageB,
-//                                            imageC: ciImage,
-//                                            threshold: 0.1)
-//
-//        if let output = filter.outputImage {
-//            self.prevImageB = prevImageA
-//            self.prevImageA = ciImage
-//            return UIImage(ciImage: output)
-//        }  else {
-//            self.prevImageB = prevImageA
-//            self.prevImageA = ciImage
-//            return UIImage(cgImage: imageRef, scale: 1.0, orientation: UIImage.Orientation.up)
-//        }
     }
 }
 

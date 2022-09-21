@@ -141,8 +141,8 @@
 		49210A2A28D9C736001516B5 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				49210A1F28D816B9001516B5 /* FrameSubtraction */,
 				49210A2728D95E56001516B5 /* AVCapture.swift */,
+				49210A1F28D816B9001516B5 /* FrameSubtraction */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
