@@ -14,25 +14,32 @@ final class ViewController: UIViewController {
     }
     
     struct ImageProcessingData {
-        let viewController: UIViewController
+        enum ImageProcessType {
+            case channelSwap
+            case grayScale
+            case binarization
+            case backgroundSubtraction
+            case frameSubTraction
+        }
+        let type: ImageProcessType
         let title: String
     }
     
     let imageProcessingList: [ImageProcessingSection] = [
         .init(sectionTitle: "画像",
               dmageProcessingDataList: [
-                .init(viewController: ChannelSwapViewController.loadFromNib(),
+                .init(type: .channelSwap,
                       title: "チャンネル切り替え"),
-                .init(viewController: GrayscaleConversionViewController.loadFromNib(),
+                .init(type: .grayScale,
                       title: "グレースケール化"),
-                .init(viewController: BinarizationViewController.loadFromNib(),
+                .init(type: .binarization,
                       title: "二値化"),
-                .init(viewController: BackgroundSubtractionViewController.loadFromNib(),
+                .init(type: .backgroundSubtraction,
                       title: "背景差分法")
               ]),
         .init(sectionTitle: "動画",
               dmageProcessingDataList: [
-                .init(viewController: FrameSubtractionViewController.loadFromNib(),
+                .init(type: .frameSubTraction,
                       title: "フレーム間差分法")
               ])
     ]
@@ -79,7 +86,21 @@ extension ViewController: UITableViewDataSource {
 }
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = imageProcessingList[indexPath.section].dmageProcessingDataList[indexPath.row].viewController
+        let vc: UIViewController
+        
+        switch imageProcessingList[indexPath.section].dmageProcessingDataList[indexPath.row].type {
+        case .channelSwap:
+            vc = ChannelSwapViewController.loadFromNib()
+        case .grayScale:
+            vc = GrayscaleConversionViewController.loadFromNib()
+        case .binarization:
+            vc = BinarizationViewController.loadFromNib()
+        case .backgroundSubtraction:
+            vc = BackgroundSubtractionViewController.loadFromNib()
+        case .frameSubTraction:
+            vc = FrameSubtractionViewController.loadFromNib()
+        }
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
