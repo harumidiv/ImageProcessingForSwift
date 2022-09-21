@@ -13,7 +13,7 @@ final class BinarizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        comparisonConversionView.setup(target: self, action: #selector(convertImage))
+        comparisonConversionView.setup(target: self, action: #selector(convertImage), segmentedControlDelegate: self)
     }
     
     @objc func convertImage() {
@@ -38,6 +38,12 @@ final class BinarizationViewController: UIViewController {
 //        } else {
 //            comparisonConversionView.afterImage.image = UIImage(named: "error")
 //        }
+    }
+}
+
+extension BinarizationViewController: CustomSegmentedControlViewDelegate {
+    func changeSelectedRow(number: Int) {
+        print("値が切り替えられたよ")
     }
 }
 

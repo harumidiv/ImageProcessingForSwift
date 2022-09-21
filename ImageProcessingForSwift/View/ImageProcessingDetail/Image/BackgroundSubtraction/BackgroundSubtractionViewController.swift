@@ -8,12 +8,11 @@
 import UIKit
 
 final class BackgroundSubtractionViewController: UIViewController {
-
     @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        comparisonConversionView.setup(target: self, action: #selector(convertImage))
+        comparisonConversionView.setup(target: self, action: #selector(convertImage), segmentedControlDelegate: self)
     }
     
     @objc func convertImage() {
@@ -45,6 +44,12 @@ final class BackgroundSubtractionViewController: UIViewController {
     @IBAction func tapAction(_ sender: Any) {
         self.present(FrameSubtractionViewController.loadFromNib(), animated: true)
 //        self.present(GrayscaleConversionViewController.loadFromNib(), animated: true)
+    }
+}
+
+extension BackgroundSubtractionViewController: CustomSegmentedControlViewDelegate {
+    func changeSelectedRow(number: Int) {
+        print("値が切り替えられたよ")
     }
 }
 

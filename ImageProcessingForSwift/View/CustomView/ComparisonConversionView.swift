@@ -8,17 +8,32 @@
 import UIKit
 
 final class ComparisonConversionView: UIView {
-    
     @IBOutlet weak var beforeImage: UIImageView!
     @IBOutlet weak var afterImage: UIImageView!
+    @IBOutlet private weak var segmentedBaseView: UIView!
     @IBOutlet private weak var convertButton: UIButton!
     
-    func setup(before: UIImage? = UIImage(named: "harumi"), after: UIImage? = UIImage(named: "no_image"), target: Any?, action: Selector) {
+    var segmentedControl: CustomSegmentedControlView!
+    
+    func setup(before: UIImage? = UIImage(named: "harumi"), after: UIImage? = UIImage(named: "no_image"), target: Any?, action: Selector, segmentedControlDelegate: CustomSegmentedControlViewDelegate) {
         afterImage.image = after
         beforeImage.image = before
         convertButton.addTarget(target,
                                 action: action,
                                 for: .touchUpInside)
+        setupCustomSegmentedControl(delegate: segmentedControlDelegate)
+    }
+    
+    private func setupCustomSegmentedControl(delegate: CustomSegmentedControlViewDelegate) {
+        segmentedControl = CustomSegmentedControlView()
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedBaseView.addSubview(segmentedControl)
+        
+        segmentedControl.topAnchor.constraint(equalTo: segmentedBaseView.topAnchor).isActive = true
+        segmentedControl.bottomAnchor.constraint(equalTo: segmentedBaseView.bottomAnchor).isActive = true
+        segmentedControl.leadingAnchor.constraint(equalTo: segmentedBaseView.leadingAnchor, constant: 40).isActive = true
+        segmentedControl.trailingAnchor.constraint(equalTo: segmentedBaseView.trailingAnchor, constant: -40).isActive = true
+        segmentedControl.setup(tabTitleList: ["Metal", "UIKit"], parentCenterX: bounds.width/2, delegate: delegate)
     }
     
     // MARK: - Initializer
