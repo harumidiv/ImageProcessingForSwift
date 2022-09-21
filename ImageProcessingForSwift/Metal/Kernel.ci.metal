@@ -49,25 +49,31 @@ extern "C" { namespace coreimage {
         return float4(inColor.r, inColor.g ,inColor.b, image.a);
     }
     
-    float4 frameSubtractionFilter(sample_t imageA, sample_t imageB, sample_t imageC, sample_t imageD, float threshold)
+    float4 frameSubtractionFilter(sample_t imageA,
+                                  sample_t imageB,
+                                  sample_t imageC,
+                                  sample_t imageD,
+                                  sample_t imageE,
+                                  sample_t imageF,
+                                  float threshold)
     {
         // 差分の絶対値取得
-        float3 adDiff = abs(imageA.rgb - imageD.rgb);
-        float3 bdDiff = abs(imageB.rgb - imageD.rgb);
+        float3 abDiff = abs(imageA.rgb - imageB.rgb);
         float3 cdDiff = abs(imageC.rgb - imageD.rgb);
+        float3 efDiff = abs(imageE.rgb - imageF.rgb);
         
         // 二値化
-        float gray1 = dot(kRec709Luma, adDiff);
-        adDiff = float3(step(threshold, gray1));
+        float gray1 = dot(kRec709Luma, abDiff);
+        abDiff = float3(step(threshold, gray1));
         
-        float gray2 = dot(kRec709Luma, bdDiff);
-        bdDiff = float3(step(threshold, gray2));
+        float gray2 = dot(kRec709Luma, cdDiff);
+        cdDiff = float3(step(threshold, gray2));
         
-        float gray3 = dot(kRec709Luma, cdDiff);
-        cdDiff = float3(step(threshold, gray3));
-        
+        float gray3 = dot(kRec709Luma, efDiff);
+        efDiff = float3(step(threshold, gray3));
+       
         // 二値化してるので比較は１つの要素で良い
-        if (adDiff.r == bdDiff.r && adDiff.r == cdDiff.r) {
+        if (abDiff.r == cdDiff.r && abDiff.r == efDiff.r) {
             return float4(0, 0 ,0, 1);
         } else {
             return float4(1, 1 ,1, 1);

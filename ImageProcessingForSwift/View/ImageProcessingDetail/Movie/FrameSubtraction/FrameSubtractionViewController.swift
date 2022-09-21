@@ -15,6 +15,8 @@ final class FrameSubtractionViewController: UIViewController {
     private var prevImageA: CIImage?
     private var prevImageB: CIImage?
     private var prevImageC: CIImage?
+    private var prevImageD: CIImage?
+    private var prevImageE: CIImage?
     
     let avCapture = AVCapture()
     
@@ -34,7 +36,11 @@ extension FrameSubtractionViewController: AVCaptureDelegate {
 
         guard let prevImageA = prevImageA,
               let prevImageB = prevImageB,
-              let prevImageC = prevImageC else {
+              let prevImageC = prevImageC,
+              let prevImageD = prevImageD,
+              let prevImageE = prevImageE else {
+            self.prevImageE = prevImageD
+            self.prevImageD = prevImageC
             self.prevImageC = prevImageB
             self.prevImageB = prevImageA
             self.prevImageA = ciImage
@@ -46,19 +52,21 @@ extension FrameSubtractionViewController: AVCaptureDelegate {
         let filter = FrameSubtractionFilter(imageA: prevImageA,
                                             imageB: prevImageB,
                                             imageC: prevImageC,
-                                            imageD: ciImage,
+                                            imageD: prevImageD,
+                                            imageE: prevImageE,
+                                            imageF: ciImage,
                                             threshold: 0.1)
 
         if let output = filter.outputImage {
-            self.prevImageC = prevImageB
-            self.prevImageB = prevImageA
-            self.prevImageA = ciImage
             imageView.image = UIImage(ciImage: output)
         }  else {
-            self.prevImageC = prevImageB
-            self.prevImageB = prevImageA
-            self.prevImageA = ciImage
             imageView.image = UIImage(cgImage: image, scale: 1.0, orientation: UIImage.Orientation.up)
-        }        
+        }
+        
+        self.prevImageE = prevImageD
+        self.prevImageD = prevImageC
+        self.prevImageC = prevImageB
+        self.prevImageB = prevImageA
+        self.prevImageA = ciImage
     }
 }
