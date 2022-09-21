@@ -194,8 +194,8 @@
 		49C53BEA28D5E62000C2CD04 /* ImageProcessingDetail */ = {
 			isa = PBXGroup;
 			children = (
-				49210A2A28D9C736001516B5 /* Movie */,
 				49210A2928D9C716001516B5 /* Image */,
+				49210A2A28D9C736001516B5 /* Movie */,
 			);
 			path = ImageProcessingDetail;
 			sourceTree = "<group>";
