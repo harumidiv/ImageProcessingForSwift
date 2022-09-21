@@ -10,6 +10,7 @@ import UIKit
 final class BinarizationViewController: UIViewController {
     @IBOutlet private weak var comparisonConversionView: ComparisonConversionView!
     private var selectedType: SelectedType = .metal
+    private let indicatorViewController: IndicatorViewController = IndicatorViewController.loadFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,20 +24,24 @@ final class BinarizationViewController: UIViewController {
             return
         }
         
-        switch selectedType {
-        case .metal:
-            let filter = BinarizationFilter(threshold: 0.3)
-            filter.inputImage = CIImage(image: image)
-            
-            if let output = filter.outputImage {
-                comparisonConversionView.afterImage.image = UIImage(ciImage: output)
-            } else {
-                comparisonConversionView.afterImage.image = UIImage(named: "error")
+        indicatorViewController.modalPresentationStyle = .overCurrentContext
+        self.present(self.indicatorViewController, animated: false) {
+            switch self.selectedType {
+            case .metal:
+                let filter = BinarizationFilter(threshold: 0.3)
+                filter.inputImage = CIImage(image: image)
+                
+                if let output = filter.outputImage {
+                    self.comparisonConversionView.afterImage.image = UIImage(ciImage: output)
+                } else {
+                    self.comparisonConversionView.afterImage.image = UIImage(named: "error")
+                }
+            case .uikit:
+                let (r, g, b, a) = pixelBuffer.getRGBA()
+                self.comparisonConversionView.afterImage.image = image.createBinarizedImage(r: r, g: g, b: b, a: a)
             }
-        case .uikit:
-            let (r, g, b, a) = pixelBuffer.getRGBA()
-            comparisonConversionView.afterImage.image = image.createBinarizedImage(r: r, g: g, b: b, a: a)
         }
+        indicatorViewController.dismiss(animated: false)
     }
 }
 
