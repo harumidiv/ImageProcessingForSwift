@@ -8,9 +8,9 @@
 import UIKit
 
 final class PixelBuffer {
-    private var pixelData: Data
-    var width: Int
-    var height: Int
+    private let pixelData: Data
+    private let width: Int
+    private let height: Int
     private var bytesPerRow: Int
     //1ピクセル4バイトのデータ固定
     private let bytesPerPixel = 4
