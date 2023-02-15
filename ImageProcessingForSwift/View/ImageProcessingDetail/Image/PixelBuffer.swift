@@ -22,7 +22,7 @@ final class PixelBuffer {
     
     init?(uiImage: UIImage) {
         guard let cgImage = uiImage.cgImage,
-              //R,G,B,A計8Bit
+              //R,G,B,A各8Bit
               cgImage.bitsPerComponent == 8,
               cgImage.bitsPerPixel == bytesPerPixel * 8 else {
             return nil
